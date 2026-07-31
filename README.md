@@ -52,15 +52,52 @@ Run tests in watch mode:
 pnpm run test:watch
 ```
 
+## Optional: 🪝 Git Hooks (Recommended for Teams)
+
+If your team wants to enforce linting pre-commit,
+consider setting up husky and lint-staged:
+
+```bash
+pnpm add -D husky lint-staged
+npx husky install
+```
+
+Then add a `pre-commit` file to the `.husky` directory with:
+
+```bash
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+pnpm exec lint-staged
+```
+
+Alternatively, you can create it with:
+
+```bash
+npx husky add .husky/pre-commit "pnpm exec lint-staged"
+```
+
+## 🔒️ Safety Measures
+
+This template has `"private": true` in `package.json` as a default safety measure.
+
+**Before publishing to npm:**
+
+1. Change `"private": false`
+2. Ensure your package name is unique and correct
+3. Review your `package.json` metadata (description, keywords, repository, etc.)
+
+This prevents accidental npm publishes during development.
+
 ## 📝 Checklist
 
 When using this template, follow the checklist to update your info properly.
 
 - Change the author name in LICENSE
-- Change `umdName` in rslib.config.ts
-- Remove the `.github` folder which contains funding info
+- Update package name and metadata in `package.json`
+- **Set `"private": false`** (currently `true` as a safety measure)
 - Review and adapt `AGENTS.md` for your project conventions
-- Clean up the READMEs.
+- Clean up the READMEs
 
 ## License
 
