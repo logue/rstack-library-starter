@@ -1,0 +1,25 @@
+* text=auto eol=lf
+
+# Texts
+# Windows batch scripts: keep CRLF + CP932 (Shift_JIS) in the working tree for
+# native tools like cmd.exe, while the blob is stored as UTF-8 in the repo.
+*.bat text eol=crlf working-tree-encoding=CP932
+*.cmd text eol=crlf working-tree-encoding=CP932
+
+# Images
+*.gif binary
+*.ico binary
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.exr binary
+*.svg text eol=lf
+*.webp binary
+*.avif binary
+*.jxl binary
+
+# Fonts
+*.eot binary
+*.otf binary
+*.ttf binary
+*.woff binary

@@ -1,0 +1,17 @@
+# Local
+.DS_Store
+Thumbs.db
+*.local
+*.log*
+
+# Dist
+node_modules
+dist
+docs
+.rslib
+
+# IDE
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea
