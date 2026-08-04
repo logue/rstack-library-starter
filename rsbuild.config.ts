@@ -2,6 +2,7 @@
 import { readFileSync } from 'node:fs';
 
 import { defineConfig } from '@rsbuild/core';
+import { pluginTypeCheck } from '@rsbuild/plugin-type-check';
 
 const pkg = JSON.parse(readFileSync('./package.json', 'utf-8')) as {
   version: string;
@@ -31,4 +32,5 @@ export default defineConfig({
       index: './src-docs/index.ts',
     },
   },
+  plugins: [pluginTypeCheck()],
 });

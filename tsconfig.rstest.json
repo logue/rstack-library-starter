@@ -4,7 +4,10 @@
     "src/**/__tests__/*",
     "env.d.ts"
   ],
-  "exclude": [],
+  "exclude": [
+    "**/node_modules",
+    "**/.*/"
+  ],
   "compilerOptions": {
     "types": [
       "@rstest/core/types",
