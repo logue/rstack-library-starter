@@ -1,37 +1,91 @@
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "root": true,
   "files": {
+    "ignoreUnknown": true,
     "includes": [
-      "src/**/*",
-      "src-docs/**/*",
-      "!node_modules",
-      "!dist",
-      "!docs"
+      "**",
+      "!!**/dist",
+      "!!**/docs"
     ]
-  },
-  "assist": {
-    "actions": {
-      "source": {
-        "organizeImports": "on"
-      }
-    }
   },
   "vcs": {
     "enabled": true,
     "clientKind": "git",
     "useIgnoreFile": true
   },
+  "linter": {
+    "rules": {
+      "a11y": "info",
+      "complexity": "warn",
+      "correctness": {
+        "noNodejsModules": "off"
+      },
+      "nursery": "off",
+      "performance": "warn",
+      "security": "error",
+      "style": {
+        "useNamingConvention": "off",
+        "noDefaultExport": "off"
+      },
+      "suspicious": "error"
+    }
+  },
+  "assist": {
+    "enabled": true,
+    "actions": {
+      "source": {
+        "organizeImports": "on"
+      }
+    }
+  },
   "formatter": {
-    "indentStyle": "space"
+    "enabled": true,
+    "formatWithErrors": false,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineEnding": "lf",
+    "lineWidth": 80,
+    "attributePosition": "auto"
   },
   "javascript": {
     "formatter": {
-      "quoteStyle": "single"
+      "trailingCommas": "all",
+      "quoteStyle": "single",
+      "arrowParentheses": "asNeeded",
+      "bracketSpacing": true,
+      "bracketSameLine": false,
+      "quoteProperties": "asNeeded"
+    },
+    "jsxRuntime": "transparent",
+    "experimentalEmbeddedSnippetsEnabled": true
+  },
+  "json": {
+    "parser": {
+      "allowComments": true
+    },
+    "formatter": {
+      "indentStyle": "space",
+      "expand": "always"
     }
   },
   "css": {
     "parser": {
-      "cssModules": true
+      "cssModules": true,
+      "tailwindDirectives": false
+    },
+    "formatter": {
+      "quoteStyle": "single",
+      "indentStyle": "space"
+    }
+  },
+  "html": {
+    "experimentalFullSupportEnabled": true,
+    "formatter": {
+      "indentStyle": "space",
+      "attributePosition": "multiline",
+      "whitespaceSensitivity": "css",
+      "selfCloseVoidElements": "always"
     }
   }
 }

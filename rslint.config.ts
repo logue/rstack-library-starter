@@ -1,7 +1,7 @@
 import {
   defineConfig,
   importPlugin,
-  js,
+  promisePlugin,
   rstestPlugin,
   ts,
   unicornPlugin,
@@ -21,14 +21,15 @@ export default defineConfig([
     ],
   },
 
-  // Base JavaScript / TypeScript recommended sets.
-  js.configs.recommended,
+  // Base TypeScript recommended sets.
   ts.configs.recommended,
+  promisePlugin.configs.recommended,
   unicornPlugin.configs.recommended,
 
   {
     ...importPlugin.configs.recommended,
     files: APP_FILES,
+    plugins: ['@typescript-eslint', 'import', 'promise', 'unicorn'],
     settings: {
       'import/resolver': {
         node: true,
@@ -108,6 +109,7 @@ export default defineConfig([
   {
     // Test files intentionally import from parent directories.
     files: TEST_FILES,
+    plugins: ['@typescript-eslint', 'import', 'promise', 'unicorn', 'rstest'],
     rules: {
       ...rstestPlugin.configs.recommended.rules,
       '@typescript-eslint/no-explicit-any': 'warn',

@@ -52,6 +52,17 @@ Run tests in watch mode:
 pnpm run test:watch
 ```
 
+## Development Environment
+
+This template uses Biome as the default formatter.
+
+### VSCode Configuration
+
+The `.vscode/settings.json` sets [Biome](https://biomejs.dev/) as the formatter for this project only.
+This does not affect your global VSCode configuration or other projects.
+
+If you use Prettier globally, it will continue to work for other projects.
+
 ## Optional: 🪝 Git Hooks (Recommended for Teams)
 
 If your team wants to enforce linting pre-commit,
@@ -93,11 +104,12 @@ This prevents accidental npm publishes during development.
 
 When using this template, follow the checklist to update your info properly.
 
-- Change the author name in LICENSE
-- Update package name and metadata in `package.json`
-- **Set `"private": false`** (currently `true` as a safety measure)
-- Review and adapt `AGENTS.md` for your project conventions
-- Clean up the READMEs
+- [ ] Change the author name in LICENSE
+- [ ] Update package name and metadata in `package.json`
+- [ ] **Set `"private": false`** (currently `true` as a safety measure)
+- [ ] Review and adapt `AGENTS.md` for your project conventions
+- [ ] Clean up the READMEs
+- [ ] Publish your project.
 
 ## License
 
