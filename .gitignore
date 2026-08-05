@@ -19,6 +19,7 @@ data/
 # Lockfiles
 *.lock
 # pnpm-lock.yaml # as you need to commit this file for reproducible builds
+# pnpm-workspace.yaml # as you need to commit this file for reproducible builds
 
 # IDE
 .vscode/*
