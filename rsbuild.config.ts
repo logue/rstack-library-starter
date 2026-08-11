@@ -11,6 +11,9 @@ const pkg = JSON.parse(readFileSync('./package.json', 'utf-8')) as {
 const buildDate = new Date().toISOString();
 
 export default defineConfig({
+  plugins: [
+    pluginTypeCheck(),
+  ],
   output: {
     distPath: {
       root: 'docs',
@@ -23,7 +26,9 @@ export default defineConfig({
   },
   source: {
     tsconfigPath: './tsconfig.rsbuild.json',
-    include: ['./src'],
+    include: [
+      './src',
+    ],
     define: {
       __APP_VERSION__: JSON.stringify(pkg.version),
       __BUILD_DATE__: JSON.stringify(buildDate),
@@ -32,5 +37,4 @@ export default defineConfig({
       index: './src-docs/index.ts',
     },
   },
-  plugins: [pluginTypeCheck()],
 });

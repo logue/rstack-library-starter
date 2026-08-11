@@ -55,11 +55,11 @@ pnpm run test:watch
 
 ## Development Environment
 
-This template uses Biome as the default formatter.
+This template uses [Biome](https://biomejs.dev/) as the default formatter.
 
 ### VSCode Configuration
 
-The `.vscode/settings.json` sets [Biome](https://biomejs.dev/) as the formatter for this project only.
+The `.vscode/settings.json` sets Biome as the formatter for this project only.
 This does not affect your global VSCode configuration or other projects.
 
 If you use Prettier globally, it will continue to work for other projects.

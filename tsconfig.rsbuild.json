@@ -9,6 +9,9 @@
     "src/**/__tests__/*"
   ],
   "compilerOptions": {
+    "lib": [
+      "DOM"
+    ],
     "types": [
       "@rsbuild/core/types",
       "node"
