@@ -59,7 +59,7 @@
     "@rsbuild/core": "^2.1.11",
     "@rsbuild/plugin-type-check": "^1.6.0",
     "@rslib/core": "^0.23.2",
-    "@rslint/core": "^0.7.3",
+    "@rslint/core": "^0.8.0",
     "@rstest/adapter-rslib": "^0.11.6",
     "@rstest/core": "^0.11.6",
     "@tsconfig/node-lts": "^24.0.0",

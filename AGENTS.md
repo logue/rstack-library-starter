@@ -10,7 +10,7 @@ You are an expert in TypeScript, Rsbuild, Rslib, Rstest, and library development
 - **Language**: TypeScript 7
 - **Package manager**: pnpm (do not use npm or yarn)
 
-**Last updated**: 2026-08-12
+**Last updated**: 2026-08-13
 **Verified with**: `package.json` in this repository
 
 ### Tool Versions
@@ -114,20 +114,29 @@ making the build pipeline transparent and maintainable.
   - Interface-like object shapes
   - Generic types
   - Default values paired with type definitions (see Type Pattern below)
+  - `.d.ts`: Type aliases, interfaces, generic types (no values)
+  - `.ts`: Type definitions paired with default values or constants
 - **`interfaces/`** — Use only when:
   - Multiple inheritance levels needed
   - Clear contract inheritance matters
 
 ### Type Definition Pattern
 
-Prefer `type` over `interface` for most cases. Consolidate type and default values together:
+Prefer `type` over `interface` for most cases.
 
 ```ts
-// types/Options.ts
+// types/Options.d.ts
 export type Options = {
   someText: string;
   someNumber: number;
 };
+```
+
+Consolidate type and default values together:
+
+```ts
+// types/Options.ts
+import type { Options } from "./Options.d.ts";
 
 /** Default configuration */
 export const Options: Options = {
