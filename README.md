@@ -53,6 +53,12 @@ Run tests in watch mode:
 pnpm run test:watch
 ```
 
+Inspect the configs of Rslib projects
+
+```bash
+pnpm run inspect
+```
+
 ## Development Environment
 
 This template uses [Biome](https://biomejs.dev/) as the default formatter.

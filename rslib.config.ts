@@ -52,15 +52,15 @@ export default defineConfig({
   ],
   lib: [
     {
-      format: 'esm',
-      dts: {
-        tsgo: true, // Enable TypeScript 7 native compiler
-        // isolated: true,  // SWC fast_dts
-        bundle: true,
-      },
       banner: {
         js: bannerText,
       },
+      dts: {
+        // isolated: true,  // SWC fast_dts
+        bundle: true,
+        tsgo: true, // Enable TypeScript 7 native compiler
+      },
+      format: 'esm',
       output: {
         filename: {
           js: 'index.es.js',
@@ -69,26 +69,26 @@ export default defineConfig({
       },
     },
     {
-      format: 'umd',
-      umdName,
       banner: {
         js: bannerText,
       },
+      format: 'umd',
       output: {
+        cleanDistPath: false,
         filename: {
           js: 'index.umd.js',
         },
-        cleanDistPath: false,
         minify: true,
         sourceMap: true,
       },
+      umdName,
     },
   ],
   source: {
-    tsconfigPath: './tsconfig.rslib.json',
     define: {
       __APP_VERSION__: JSON.stringify(pkg.version),
       __BUILD_DATE__: JSON.stringify(buildDate),
     },
+    tsconfigPath: './tsconfig.rslib.json',
   },
 });
