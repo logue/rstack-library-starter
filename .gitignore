@@ -5,6 +5,7 @@ node_modules/
 # Build / Cache
 dist/
 docs/
+demo/
 .rsbuild/
 .rslib/
 coverage/

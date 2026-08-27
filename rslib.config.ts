@@ -50,6 +50,13 @@ export default defineConfig({
   plugins: [
     pluginTypeCheck(),
   ],
+  source: {
+    define: {
+      __APP_VERSION__: JSON.stringify(pkg.version),
+      __BUILD_DATE__: JSON.stringify(buildDate),
+    },
+    tsconfigPath: './tsconfig.rslib.json',
+  },
   lib: [
     {
       banner: {
@@ -84,11 +91,4 @@ export default defineConfig({
       umdName,
     },
   ],
-  source: {
-    define: {
-      __APP_VERSION__: JSON.stringify(pkg.version),
-      __BUILD_DATE__: JSON.stringify(buildDate),
-    },
-    tsconfigPath: './tsconfig.rslib.json',
-  },
 });

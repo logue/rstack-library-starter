@@ -5,6 +5,7 @@
     "rsbuild.config.*",
     "rslib.config.*",
     "rslint.config.*",
+    "rspress.config.*",
     "package.json"
   ],
   "exclude": [

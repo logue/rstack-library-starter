@@ -8,12 +8,18 @@
       "!!**/.rsbuild",
       "!!**/.rslib",
       "!!**/node_modules",
+      "!!**/demo",
       "!!**/dist",
       "!!**/docs"
     ],
     // Ignore files that cannot be processed by biome.
     "ignoreUnknown": true
   },
+  "plugins": [
+    "./node_modules/@logue/biome-plugins/grit/enforce-pure-src.grit",
+    "./node_modules/@logue/biome-plugins/grit/prefer-union-over-enum.grit",
+    "./node_modules/@logue/biome-plugins/grit/no-null-type.grit"
+  ],
   // Enable Biome's built-in version control system (VCS) support.
   "vcs": {
     "clientKind": "git",
@@ -53,7 +59,7 @@
       "a11y": {
         // Because they are often used for purposes that are meaningless
         // to screen readers, such as icons.
-        "noSvgWithoutTitle": "info"
+        "noSvgWithoutTitle": "off"
       },
       "complexity": {
         // To remove the warning about processing long lines of code, uncomment the following line.
@@ -89,7 +95,10 @@
         "useVueHyphenatedAttributes": "error"
       },
       "suspicious": {
-        // The removal of the console command should be handled by the bundler.
+        // The `any` type completely destroys type safety and becomes a
+        // breeding ground for runtime errors.
+        "noExplicitAny": "warn",
+        // The removal of the console.* functions should be handled by the bundler.
         "noConsole": "off",
         // Do not use enum, use union.
         "noConstEnum": "error"
@@ -164,5 +173,22 @@
       // that may contain comments for documentation purposes.
       "allowComments": true
     }
-  }
+  },
+  "overrides": [
+    {
+      "includes": [
+        "**/*.test.*",
+        "**/*.spec.*"
+      ],
+      "linter": {
+        "rules": {
+          "suspicious": {
+            // The test code allows the `any` type to verify that
+            // an error occurs when an invalid value is entered.
+            "noExplicitAny": "off"
+          }
+        }
+      }
+    }
+  ]
 }

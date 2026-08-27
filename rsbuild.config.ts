@@ -1,4 +1,4 @@
-/** For build documentation site use. */
+/** For build demo site use. */
 import { readFileSync } from 'node:fs';
 
 import { defineConfig } from '@rsbuild/core';
@@ -14,27 +14,27 @@ export default defineConfig({
   plugins: [
     pluginTypeCheck(),
   ],
-  html: {
-    template: './index.html',
-  },
-  output: {
-    assetPrefix: './',
-    distPath: {
-      root: 'docs',
-    },
-    filenameHash: true,
-  },
   source: {
     define: {
       __APP_VERSION__: JSON.stringify(pkg.version),
       __BUILD_DATE__: JSON.stringify(buildDate),
     },
     entry: {
-      index: './src-docs/index.ts',
+      index: './src-demo/index.ts',
     },
     include: [
       './src',
     ],
     tsconfigPath: './tsconfig.rsbuild.json',
+  },
+  html: {
+    template: './src-demo/index.html',
+  },
+  output: {
+    assetPrefix: './',
+    distPath: {
+      root: 'demo',
+    },
+    filenameHash: true,
   },
 });

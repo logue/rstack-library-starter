@@ -1,34 +1,41 @@
 import {
   defineConfig,
   importPlugin,
+  js,
   promisePlugin,
+  reactHooksPlugin,
+  reactPlugin,
   rstestPlugin,
   ts,
   unicornPlugin,
 } from '@rslint/core';
 
 const APP_FILES = [
-  '**/*.{ts,mts,tsx,js,mjs,jsx,json,jsonc,yml,yaml,vue,astro,svelte}',
+  '**/*.{ts,mts,tsx,js,mjs,jsx,json,jsonc,yml,yaml,md,mdx,vue,astro,svelte}',
 ];
 const TEST_FILES = [
   '**/*.{test,spec}.{ts,mts,tsx,js,mjs,jsx}',
 ];
-
 export default defineConfig([
   {
     ignores: [
+      '**/demo/**',
       '**/dist/**',
       '**/dist-ssr/**',
       '**/docs/**',
       '**/coverage/**',
+      '**/grit/**',
       '**/node_modules/**',
     ],
   },
 
   // Base TypeScript recommended sets.
+  js.configs.recommended,
   ts.configs.recommended,
   promisePlugin.configs.recommended,
   unicornPlugin.configs.recommended,
+  reactPlugin.configs.recommended,
+  reactHooksPlugin.configs.recommended,
 
   {
     ...importPlugin.configs.recommended,
