@@ -10,7 +10,7 @@ You are an expert in TypeScript, Rsbuild, Rslib, Rstest, and library development
 - **Language**: TypeScript 7
 - **Package manager**: pnpm (do not use npm or yarn)
 
-**Last updated**: 2026-08-27
+**Last updated**: 2026-08-28
 **Verified with**: `package.json` in this repository
 
 ### Tool Versions
@@ -20,7 +20,7 @@ See `package.json` for authoritative dependency versions.
 This guide assumes:
 
 - TypeScript 7.0.2 or later
-- Rsbuild 2.2.0 or later
+- Rsbuild 2.2.1 or later
 - Rslib 0.23.2 or later
 - Rstest 0.11.10 or later
 
@@ -92,6 +92,7 @@ making the build pipeline transparent and maintainable.
 
 ## Documentation
 
+- Mmodule Federation: <https://module-federation.io/llms.txt>
 - Rslib: <https://rslib.rs/llms.txt>
 - Rsbuild: <https://rsbuild.rs/llms.txt>
 - Rslint: <https://rslint.rs/llms.txt>

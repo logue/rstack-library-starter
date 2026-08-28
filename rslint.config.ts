@@ -19,11 +19,15 @@ const TEST_FILES = [
 export default defineConfig([
   {
     ignores: [
-      '**/demo/**',
-      '**/dist/**',
-      '**/dist-ssr/**',
-      '**/docs/**',
+      '**/.agents/**',
+      '**/.mf/**',
+      '**/.rsbuild/**',
+      '**/.rslib/**',
       '**/coverage/**',
+      '**/demo/**',
+      '**/dist-ssr/**',
+      '**/dist/**',
+      '**/docs/**',
       '**/grit/**',
       '**/node_modules/**',
     ],

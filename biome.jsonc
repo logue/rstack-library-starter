@@ -5,12 +5,16 @@
   "files": {
     "includes": [
       "**",
+      "!!**/.agents",
+      "!!**/.mf",
       "!!**/.rsbuild",
       "!!**/.rslib",
-      "!!**/node_modules",
+      "!!**/coverage",
       "!!**/demo",
+      "!!**/dist-ssr",
       "!!**/dist",
-      "!!**/docs"
+      "!!**/docs",
+      "!!**/node_modules"
     ],
     // Ignore files that cannot be processed by biome.
     "ignoreUnknown": true
@@ -19,7 +23,7 @@
     // "./node_modules/@logue/biome-plugins/grit/enforce-attribute-order.grit",
     "./node_modules/@logue/biome-plugins/grit/enforce-pure-src.grit",
     "./node_modules/@logue/biome-plugins/grit/prefer-union-over-enum.grit",
-    "./node_modules/@logue/biome-plugins/grit/no-null-type.grit",
+    "./node_modules/@logue/biome-plugins/grit/no-null-type.grit"
     // "./node_modules/@logue/biome-plugins/grit/vue-multi-word-filename.grit"
   ],
   // Enable Biome's built-in version control system (VCS) support.
