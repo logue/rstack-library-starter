@@ -3,12 +3,13 @@ node_modules/
 .claude/
 
 # Build / Cache
+.rsbuild/
+.rslib/
+.mf/
+coverage/
 dist/
 docs/
 demo/
-.rsbuild/
-.rslib/
-coverage/
 
 # Database
 data/

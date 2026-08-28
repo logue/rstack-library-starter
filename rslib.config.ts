@@ -1,6 +1,7 @@
 /** For build library use */
 import { readFileSync } from 'node:fs';
 
+import { pluginModuleFederation } from '@module-federation/rsbuild-plugin';
 import { pluginTypeCheck } from '@rsbuild/plugin-type-check';
 import { defineConfig } from '@rslib/core';
 
@@ -20,7 +21,7 @@ import { defineConfig } from '@rslib/core';
  *   const myLibrary = window.umdName;
  * </script>
  */
-const umdName = undefined; // CHANGE THIS to your library's global variable name.
+const umdName = 'RstackLibrary'; // CHANGE THIS to your library's global variable name.
 
 const pkg = JSON.parse(readFileSync('./package.json', 'utf-8')) as {
   name: string;
@@ -49,6 +50,23 @@ const bannerText = `/**
 export default defineConfig({
   plugins: [
     pluginTypeCheck(),
+    pluginModuleFederation({
+      name: umdName,
+      exposes: {
+        '.': './src/index.ts',
+      },
+      shared: {
+        react: {
+          singleton: true,
+        },
+        'react-dom': {
+          singleton: true,
+        },
+        vue: {
+          singleton: true,
+        },
+      },
+    }),
   ],
   source: {
     define: {
@@ -89,6 +107,13 @@ export default defineConfig({
         sourceMap: true,
       },
       umdName,
+    },
+    {
+      banner: {
+        js: bannerText,
+      },
+      format: 'mf',
+      splitChunks: false,
     },
   ],
 });

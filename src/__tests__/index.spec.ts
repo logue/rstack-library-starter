@@ -1,4 +1,5 @@
 import { expect, test } from '@rstest/core';
+
 import { squared } from '../index';
 
 test('squared', () => {
