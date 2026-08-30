@@ -77,15 +77,15 @@ export default defineConfig({
   },
   lib: [
     {
+      format: 'esm',
       banner: {
         js: bannerText,
       },
       dts: {
+        tsgo: true, // Enable TypeScript 7 native compiler
         // isolated: true,  // SWC fast_dts
         bundle: true,
-        tsgo: true, // Enable TypeScript 7 native compiler
       },
-      format: 'esm',
       output: {
         filename: {
           js: 'index.es.js',
@@ -94,19 +94,22 @@ export default defineConfig({
       },
     },
     {
+      // Compatibility-only browser build. npm consumers should prefer the ESM entry
+      // above, which is the default package export and the primary distribution target.
+      format: 'umd',
+      umdName,
+      autoExternal: true,
       banner: {
         js: bannerText,
       },
-      format: 'umd',
       output: {
-        cleanDistPath: false,
         filename: {
           js: 'index.umd.js',
         },
+        cleanDistPath: false,
         minify: true,
-        sourceMap: true,
+        sourceMap: false,
       },
-      umdName,
     },
     {
       banner: {

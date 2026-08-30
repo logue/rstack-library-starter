@@ -32,7 +32,8 @@
       "default": "./dist/index.es.js"
     },
     "./umd": {
-      "default": "./dist/index.umd.js"
+      "default": "./dist/index.umd.js",
+      "import": "./dist/index.umd.js"
     },
     "./mf-manifest.json": "./dist/mf-manifest.json",
     "./package.json": "./package.json"
