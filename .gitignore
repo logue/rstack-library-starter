@@ -1,18 +1,40 @@
 # Dependencies
-node_modules/
 .claude/
+.pnp
+.pnp.js
+node_modules/
 
 # Build / Cache
-.rsbuild/
-.rslib/
-.mf/
+.cache
+.data
+.mf
+.nitro
+.nuxt
+.output
+
+# Test Report
 coverage/
+reports/
+test-results/
+
+# Production / Build output
 dist/
 docs/
 demo/
+storybook-static/
 
-# Database
-data/
+# Logs
+logs
+*.log
+
+# Runtime data
+.rsbuild
+.rslib
+.rspack-profile-*
+*.pid
+*.pid.lock
+*.seed
+pids
 
 # Environment
 .env
@@ -25,13 +47,19 @@ data/
 # pnpm-workspace.yaml # as you need to commit this file for reproducible builds
 
 # IDE
+.idea
+*.iml
+*.sublime-project
+*.sublime-workspace
+*.swo
+*.swp
 .vscode/*
 !.vscode/extensions.json
 !.vscode/settings.json
-.idea/
 
 # Local
+/local
 .DS_Store
-Thumbs.db
 *.local
 *.log*
+Thumbs.db

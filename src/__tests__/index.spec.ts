@@ -1,6 +1,6 @@
 import { expect, test } from '@rstest/core';
 
-import { squared } from '../index';
+import { squared } from '@/index';
 
 test('squared', () => {
   expect(squared(2)).toBe(4);

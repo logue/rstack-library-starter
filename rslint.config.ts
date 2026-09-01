@@ -2,6 +2,7 @@ import {
   defineConfig,
   importPlugin,
   js,
+  jsxA11yPlugin,
   promisePlugin,
   reactHooksPlugin,
   reactPlugin,
@@ -10,27 +11,55 @@ import {
   unicornPlugin,
 } from '@rslint/core';
 
+import markdownPlugin from '@eslint/markdown';
+
 const APP_FILES = [
-  '**/*.{ts,mts,tsx,js,mjs,jsx,json,jsonc,yml,yaml,md,mdx,vue,astro,svelte}',
+  '**/*.{ts,mts,tsx,js,mjs,jsx,json,jsonc,yml,yaml,mdx,vue,astro,svelte}',
 ];
 const TEST_FILES = [
   '**/*.{test,spec}.{ts,mts,tsx,js,mjs,jsx}',
 ];
+const DOC_FILES = [
+  '**/*.{md,mdx}',
+];
+
 export default defineConfig([
   {
     ignores: [
+      // AI agents skill docs.
       '**/.agents/**',
+      // Build intermediate artifacts.
+      '**/.cache/**',
+      '**/.data/**',
       '**/.mf/**',
+      '**/.nitro/**',
+      '**/.nuxt/**',
+      '**/.output/**',
       '**/.rsbuild/**',
       '**/.rslib/**',
+      // Test coverage reports.
       '**/coverage/**',
+      '**/reports',
+      '**/test-results',
+      // Built artifacts.
       '**/demo/**',
       '**/dist-ssr/**',
       '**/dist/**',
       '**/docs/**',
+      '**/storybook-static/**',
+      // Grit (Biome Rules) source artifacts.
       '**/grit/**',
+      // Node modules.
       '**/node_modules/**',
     ],
+    languageOptions: {
+      ecmaVersion: 'latest',
+      parserOptions: {
+        project: [
+          './tsconfig.json',
+        ],
+      },
+    },
   },
 
   // Base TypeScript recommended sets.
@@ -40,6 +69,7 @@ export default defineConfig([
   unicornPlugin.configs.recommended,
   reactPlugin.configs.recommended,
   reactHooksPlugin.configs.recommended,
+  jsxA11yPlugin.configs.recommended,
 
   {
     ...importPlugin.configs.recommended,
@@ -110,6 +140,12 @@ export default defineConfig([
           'newlines-between': 'always',
           pathGroups: [
             {
+              group: 'builtin',
+              pattern:
+                '{@rsbuild/**,@rslint/**,@rslib/*,@rspack/**,@rstest/**}',
+              position: 'before',
+            },
+            {
               group: 'internal',
               pattern: '{@/**}',
               position: 'before',
@@ -165,5 +201,13 @@ export default defineConfig([
       '@typescript-eslint/no-explicit-any': 'warn',
       'import/no-relative-parent-imports': 'off',
     },
+  },
+
+  {
+    files: DOC_FILES,
+    plugins: [
+      'markdown',
+    ],
+    ...markdownPlugin.configs.recommended,
   },
 ]);

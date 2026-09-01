@@ -1,8 +1,8 @@
 /** For build demo site use. */
-import { readFileSync } from 'node:fs';
-
 import { defineConfig } from '@rsbuild/core';
 import { pluginTypeCheck } from '@rsbuild/plugin-type-check';
+
+import { readFileSync } from 'node:fs';
 
 const pkg = JSON.parse(readFileSync('./package.json', 'utf-8')) as {
   version: string;

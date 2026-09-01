@@ -1,19 +1,6 @@
 {
-  "[css]": {
-    "editor.defaultFormatter": "biomejs.biome"
-  },
-  "[html]": {
-    "editor.defaultFormatter": "biomejs.biome"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "biomejs.biome"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "biomejs.biome"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "biomejs.biome"
-  },
+  "eslint.enable": false,
+  "rstack.rslint.enable": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.biome": "explicit",
     "source.fixAll.rslint": "explicit",
@@ -28,5 +15,20 @@
   },
   // Enable the experimental TypeScript Go (tsgo) feature for faster TypeScript compilation.
   "js/ts.experimental.useTsgo": true,
-  "notebook.defaultFormatter": "biomejs.biome"
+  "notebook.defaultFormatter": "biomejs.biome",
+  "[css]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  }
 }

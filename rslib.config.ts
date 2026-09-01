@@ -1,9 +1,10 @@
 /** For build library use */
+import { pluginTypeCheck } from '@rsbuild/plugin-type-check';
+import { defineConfig } from '@rslib/core';
+
 import { readFileSync } from 'node:fs';
 
 import { pluginModuleFederation } from '@module-federation/rsbuild-plugin';
-import { pluginTypeCheck } from '@rsbuild/plugin-type-check';
-import { defineConfig } from '@rslib/core';
 
 /**
  * The UMD name is used for the global variable name when the library

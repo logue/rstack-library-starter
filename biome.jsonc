@@ -5,15 +5,28 @@
   "files": {
     "includes": [
       "**",
+      // AI agents skill docs.
       "!!**/.agents",
+      // Build intermediate artifacts.
+      "!!**/.cache",
+      "!!**/.data",
       "!!**/.mf",
+      "!!**/.nitro",
+      "!!**/.nuxt",
+      "!!**/.output",
       "!!**/.rsbuild",
       "!!**/.rslib",
+      // Test coverage reports.
       "!!**/coverage",
+      "!!**/reports",
+      "!!**/test-results",
+      // Built artifacts.
       "!!**/demo",
       "!!**/dist-ssr",
       "!!**/dist",
       "!!**/docs",
+      "!!**/storybook-static",
+      // Node modules.
       "!!**/node_modules"
     ],
     // Ignore files that cannot be processed by biome.
@@ -41,7 +54,7 @@
         // Sort imports on save.
         // This is useful for keeping import statements organized
         // and consistent.
-        "organizeImports": "on"
+        "organizeImports": "off"
       }
     }
   },
