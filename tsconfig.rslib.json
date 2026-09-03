@@ -1,37 +1,37 @@
 {
-  "extends": "@tsconfig/node-lts/tsconfig.json",
-  "include": [
-    "env.d.ts",
-    "src/**/*"
-  ],
-  "exclude": [
-    "**/node_modules",
-    "**/.*/",
-    "src/**/__tests__/*"
-  ],
   "compilerOptions": {
-    "rootDir": "src",
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "isolatedModules": true,
+    /* modules */
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    /* type checking */
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "outDir": "dist",
     "paths": {
       "@/*": [
         "./src/*"
       ]
     },
+    "resolveJsonModule": true,
+    "rootDir": "src",
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.rslib.tsbuildinfo",
     "types": [
       "@rslib/core/types",
       "node"
     ],
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.rslib.tsbuildinfo",
-    "useDefineForClassFields": true,
-    "declaration": true,
-    "emitDeclarationOnly": true,
-    /* modules */
-    "module": "esnext",
-    "isolatedModules": true,
-    "resolveJsonModule": true,
-    "moduleResolution": "bundler",
-    /* type checking */
-    "noUnusedLocals": true,
-    "noUnusedParameters": true
-  }
+    "useDefineForClassFields": true
+  },
+  "exclude": [
+    "**/node_modules",
+    "**/.*/",
+    "src/**/__tests__/*"
+  ],
+  "extends": "@tsconfig/node-lts/tsconfig.json",
+  "include": [
+    "env.d.ts",
+    "src/**/*"
+  ]
 }

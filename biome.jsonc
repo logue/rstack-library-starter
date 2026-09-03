@@ -51,10 +51,19 @@
     "enabled": true,
     "actions": {
       "source": {
+        "useSortedInterfaceMembers": "on",
+        // Remove duplicate CSS classes.
+        "noDuplicateClasses": "on",
         // Sort imports on save.
         // This is useful for keeping import statements organized
         // and consistent.
-        "organizeImports": "off"
+        "organizeImports": "off",
+        // Sort stylesheet properties.
+        "useSortedProperties": "on",
+        // Sort package.json.
+        "useSortedPackageJson": "on",
+        // Sort html(like) attributes.
+        "useSortedAttributes": "on"
       }
     }
   },

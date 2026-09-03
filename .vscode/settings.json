@@ -1,21 +1,4 @@
 {
-  "eslint.enable": false,
-  "rstack.rslint.enable": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.biome": "explicit",
-    "source.fixAll.rslint": "explicit",
-    "source.organizeImports.biome": "explicit"
-  },
-  "editor.defaultFormatter": "biomejs.biome",
-  "editor.formatOnPaste": true,
-  "editor.formatOnSave": true,
-  // Allow json comments.
-  "files.associations": {
-    "*.json": "jsonc"
-  },
-  // Enable the experimental TypeScript Go (tsgo) feature for faster TypeScript compilation.
-  "js/ts.experimental.useTsgo": true,
-  "notebook.defaultFormatter": "biomejs.biome",
   "[css]": {
     "editor.defaultFormatter": "biomejs.biome"
   },
@@ -30,5 +13,27 @@
   },
   "[typescript]": {
     "editor.defaultFormatter": "biomejs.biome"
-  }
+  },
+  "editor.codeActionsOnSave": {
+    "source.action.useSortedAttributes.biome": "explicit",
+    "source.action.noDuplicateClasses.biome": "explicit",
+    "source.action.useSortedInterfaceMembers.biome": "explicit",
+    "source.action.useSortedPackageJson.biome": "explicit",
+    "source.action.useSortedProperties.biome": "explicit",
+    "source.fixAll.biome": "explicit",
+    "source.fixAll.rslint": "explicit",
+    "source.organizeImports.biome": "explicit"
+  },
+  "editor.defaultFormatter": "biomejs.biome",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "eslint.enable": false,
+  // Allow json comments.
+  "files.associations": {
+    "*.json": "jsonc"
+  },
+  // Enable the experimental TypeScript Go (tsgo) feature for faster TypeScript compilation.
+  "js/ts.experimental.useTsgo": true,
+  "notebook.defaultFormatter": "biomejs.biome",
+  "rstack.rslint.enable": true
 }

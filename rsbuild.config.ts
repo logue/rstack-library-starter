@@ -11,6 +11,16 @@ const pkg = JSON.parse(readFileSync('./package.json', 'utf-8')) as {
 const buildDate = new Date().toISOString();
 
 export default defineConfig({
+  html: {
+    template: './src-demo/index.html',
+  },
+  output: {
+    assetPrefix: './',
+    distPath: {
+      root: 'demo',
+    },
+    filenameHash: true,
+  },
   plugins: [
     pluginTypeCheck(),
   ],
@@ -26,15 +36,5 @@ export default defineConfig({
       './src',
     ],
     tsconfigPath: './tsconfig.rsbuild.json',
-  },
-  html: {
-    template: './src-demo/index.html',
-  },
-  output: {
-    assetPrefix: './',
-    distPath: {
-      root: 'demo',
-    },
-    filenameHash: true,
   },
 });
