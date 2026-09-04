@@ -49,50 +49,6 @@ const bannerText = `/**
 `;
 
 export default defineConfig({
-  lib: [
-    {
-      banner: {
-        js: bannerText,
-      },
-      dts: {
-        // isolated: true,  // SWC fast_dts
-        bundle: true,
-        tsgo: true, // Enable TypeScript 7 native compiler
-      },
-      format: 'esm',
-      output: {
-        filename: {
-          js: 'index.es.js',
-        },
-        sourceMap: true,
-      },
-    },
-    {
-      autoExternal: true,
-      banner: {
-        js: bannerText,
-      },
-      // Compatibility-only browser build. npm consumers should prefer the ESM entry
-      // above, which is the default package export and the primary distribution target.
-      format: 'umd',
-      output: {
-        cleanDistPath: false,
-        filename: {
-          js: 'index.umd.js',
-        },
-        minify: true,
-        sourceMap: false,
-      },
-      umdName,
-    },
-    {
-      banner: {
-        js: bannerText,
-      },
-      format: 'mf',
-      splitChunks: false,
-    },
-  ],
   plugins: [
     pluginTypeCheck(),
     pluginModuleFederation({
@@ -112,6 +68,54 @@ export default defineConfig({
         },
       },
     }),
+  ],
+  banner: {
+    css: bannerText,
+    dts: bannerText,
+    js: bannerText,
+  },
+  bundle: true,
+  syntax: 'esnext',
+  output: {
+    target: 'node',
+    autoExternal: true,
+  },
+  lib: [
+    {
+      format: 'esm',
+      dts: {
+        // isolated: true,  // SWC fast_dts
+        bundle: true,
+        autoExtension: true,
+        tsgo: true, // Enable TypeScript 7 native compiler
+      },
+      output: {
+        filename: {
+          js: 'index.es.js',
+        },
+        sourceMap: true,
+      },
+    },
+    {
+      // Compatibility-only browser build. npm consumers should prefer the ESM entry
+      // above, which is the default package export and the primary distribution target.
+      format: 'umd',
+      output: {
+        cleanDistPath: false,
+        filename: {
+          js: 'index.umd.js',
+        },
+        minify: true,
+        sourceMap: false,
+      },
+      syntax: 'es2020',
+      umdName,
+    },
+    {
+      // Module Federation
+      format: 'mf',
+      splitChunks: false,
+    },
   ],
   source: {
     define: {

@@ -14,8 +14,7 @@
       "!!**/.nitro",
       "!!**/.nuxt",
       "!!**/.output",
-      "!!**/.rsbuild",
-      "!!**/.rslib",
+      "!!**/.rstack",
       // Test coverage reports.
       "!!**/coverage",
       "!!**/reports",

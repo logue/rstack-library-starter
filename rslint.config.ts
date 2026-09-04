@@ -35,8 +35,7 @@ export default defineConfig([
       '**/.nitro/**',
       '**/.nuxt/**',
       '**/.output/**',
-      '**/.rsbuild/**',
-      '**/.rslib/**',
+      '**/.rstack/**',
       // Test coverage reports.
       '**/coverage/**',
       '**/reports',
@@ -198,6 +197,7 @@ export default defineConfig([
     ],
     rules: {
       ...rstestPlugin.configs.recommended.rules,
+      // The demo data for the test code should preferably be of type `any`.
       '@typescript-eslint/no-explicit-any': 'warn',
       'import/no-relative-parent-imports': 'off',
     },

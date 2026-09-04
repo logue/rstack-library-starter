@@ -1,4 +1,13 @@
 {
+  "extends": "./tsconfig.rslib.json",
+  "include": [
+    "env.d.ts",
+    "src/**/*",
+    "src-demo/**/*"
+  ],
+  "exclude": [
+    "src/**/__tests__/*"
+  ],
   "compilerOptions": {
     "lib": [
       "DOM"
@@ -15,14 +24,5 @@
       "@rsbuild/core/types",
       "node"
     ]
-  },
-  "exclude": [
-    "src/**/__tests__/*"
-  ],
-  "extends": "./tsconfig.rslib.json",
-  "include": [
-    "env.d.ts",
-    "src/**/*",
-    "src-demo/**/*"
-  ]
+  }
 }

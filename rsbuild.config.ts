@@ -11,9 +11,9 @@ const pkg = JSON.parse(readFileSync('./package.json', 'utf-8')) as {
 const buildDate = new Date().toISOString();
 
 export default defineConfig({
-  html: {
-    template: './src-demo/index.html',
-  },
+  plugins: [
+    pluginTypeCheck(),
+  ],
   output: {
     assetPrefix: './',
     distPath: {
@@ -21,9 +21,9 @@ export default defineConfig({
     },
     filenameHash: true,
   },
-  plugins: [
-    pluginTypeCheck(),
-  ],
+  html: {
+    template: './src-demo/index.html',
+  },
   source: {
     define: {
       __APP_VERSION__: JSON.stringify(pkg.version),

@@ -28,8 +28,7 @@ logs
 *.log
 
 # Runtime data
-.rsbuild
-.rslib
+.rstack
 .rspack-profile-*
 *.pid
 *.pid.lock

@@ -1,4 +1,14 @@
 {
+  "extends": "@tsconfig/node-lts/tsconfig.json",
+  "include": [
+    "env.d.ts",
+    "src/**/*"
+  ],
+  "exclude": [
+    "**/node_modules",
+    "**/.*/",
+    "src/**/__tests__/*"
+  ],
   "compilerOptions": {
     "declaration": true,
     "emitDeclarationOnly": true,
@@ -23,15 +33,5 @@
       "node"
     ],
     "useDefineForClassFields": true
-  },
-  "exclude": [
-    "**/node_modules",
-    "**/.*/",
-    "src/**/__tests__/*"
-  ],
-  "extends": "@tsconfig/node-lts/tsconfig.json",
-  "include": [
-    "env.d.ts",
-    "src/**/*"
-  ]
+  }
 }
