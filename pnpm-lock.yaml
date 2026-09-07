@@ -1,3 +1,104 @@
+---
+lockfileVersion: '9.0'
+
+importers:
+
+  .:
+    configDependencies: {}
+    packageManagerDependencies:
+      pnpm:
+        specifier: 12.3.4
+        version: 12.3.4
+
+packages:
+
+  '@pnpm/exe.darwin-arm64@12.3.4':
+    resolution: {integrity: sha512-PAyUol8T1+/+ViOiXAt51ECA+QnfXCqz6foL4bW+LsoX0NcVd5XVEM2mRQu+LV4oc7uRz9zf9U0P+XFfuQeDAw==}
+    cpu: [arm64]
+    os: [darwin]
+
+  '@pnpm/exe.darwin-x64@12.3.4':
+    resolution: {integrity: sha512-fxP9JCk0Cdye+ePuj+GJJLMUMTqHGWRdb1dtv4How876uQ2ehxvenpgiYAir/ceO9PsYUZkFTtyZdx+rRu5QOA==}
+    cpu: [x64]
+    os: [darwin]
+
+  '@pnpm/exe.linux-arm64-musl@12.3.4':
+    resolution: {integrity: sha512-FBOt0/7ye6O6q4AllVV5QMviB6qE6fqkeczV/+MDWQsmo+QJrlfsh6X7CpH/tClVpBZEyIbjpUoT8bNhCYBxEg==}
+    cpu: [arm64]
+    os: [linux]
+    libc: [musl]
+
+  '@pnpm/exe.linux-arm64@12.3.4':
+    resolution: {integrity: sha512-t71AVA7LRqiKTyZ5xMYaZc2n5DfdpMbfokZuiIOXHBOM03ECnF0t4iYwaBDqJgVjlKYUOwaF/bRQajGNA4cJ4w==}
+    cpu: [arm64]
+    os: [linux]
+    libc: [glibc]
+
+  '@pnpm/exe.linux-x64-musl@12.3.4':
+    resolution: {integrity: sha512-RPmk7Jb/aYaFvL2iyDN/AtMY+hUEsue732WmXpcuQ9tBpMnGyA5py7Z3+e+qmQaJ0zY/4ni9jJiyPBQHujmv6w==}
+    cpu: [x64]
+    os: [linux]
+    libc: [musl]
+
+  '@pnpm/exe.linux-x64@12.3.4':
+    resolution: {integrity: sha512-2ZqOlSPkfwX1h5cR+FPiWf8+F+2hZT/3TvhUK5sigHqwaQCIiq8R7CGxhndKs63JtcLi2a1Qpo+wX/EoyfjyJQ==}
+    cpu: [x64]
+    os: [linux]
+    libc: [glibc]
+
+  '@pnpm/exe.win32-arm64@12.3.4':
+    resolution: {integrity: sha512-ANyrHqyqco6SXBysUTRF74itDyyraea7IbFsKFdNXTjcFnfycTDx37EwuhdpPYFNSIh2JhUG4fByclsRfiHX7w==}
+    cpu: [arm64]
+    os: [win32]
+
+  '@pnpm/exe.win32-x64@12.3.4':
+    resolution: {integrity: sha512-WH/KqBPY/hq2Tb7SgQltEZytimcjgKRaCRL/aM9CI0c67iKc5TVmHUhIiL3Ux9FB4bWn36i6XewUcScQI+zG8w==}
+    cpu: [x64]
+    os: [win32]
+
+  pnpm@12.3.4:
+    resolution: {integrity: sha512-lhqkH7B32joEpEHZ+OFevAyW2o73ELLrZ7+e58sGEOq9SPH9hfUc/+c4RnhfoPh8VqOocqHYk/hEZ0G1zORUVw==}
+    engines: {node: '>=18.*'}
+    hasBin: true
+
+snapshots:
+
+  '@pnpm/exe.darwin-arm64@12.3.4':
+    optional: true
+
+  '@pnpm/exe.darwin-x64@12.3.4':
+    optional: true
+
+  '@pnpm/exe.linux-arm64-musl@12.3.4':
+    optional: true
+
+  '@pnpm/exe.linux-arm64@12.3.4':
+    optional: true
+
+  '@pnpm/exe.linux-x64-musl@12.3.4':
+    optional: true
+
+  '@pnpm/exe.linux-x64@12.3.4':
+    optional: true
+
+  '@pnpm/exe.win32-arm64@12.3.4':
+    optional: true
+
+  '@pnpm/exe.win32-x64@12.3.4':
+    optional: true
+
+  pnpm@12.3.4:
+    optionalDependencies:
+      '@pnpm/exe.darwin-arm64': 12.3.4
+      '@pnpm/exe.darwin-x64': 12.3.4
+      '@pnpm/exe.linux-arm64': 12.3.4
+      '@pnpm/exe.linux-arm64-musl': 12.3.4
+      '@pnpm/exe.linux-x64': 12.3.4
+      '@pnpm/exe.linux-x64-musl': 12.3.4
+      '@pnpm/exe.win32-arm64': 12.3.4
+      '@pnpm/exe.win32-x64': 12.3.4
+
+---
 lockfileVersion: '9.0'
 
 settings:
@@ -33,8 +134,8 @@ importers:
         specifier: ^1.0.0
         version: 1.0.0(@microsoft/api-extractor@7.59.0(@types/node@26.4.1))(@module-federation/runtime-tools@2.9.0)(typescript@7.0.2)
       '@rslint/core':
-        specifier: ^0.9.0
-        version: 0.9.0
+        specifier: ^0.9.1
+        version: 0.9.1
       '@rstest/adapter-rslib':
         specifier: ^0.11.12
         version: 0.11.12(@rslib/core@1.0.0(@microsoft/api-extractor@7.59.0(@types/node@26.4.1))(@module-federation/runtime-tools@2.9.0)(typescript@7.0.2))(@rstest/core@0.11.12(@module-federation/runtime-tools@2.9.0))(typescript@7.0.2)
@@ -235,50 +336,50 @@ packages:
     peerDependencies:
       tslib: '2'
 
-  '@jsonjoy.com/fs-core@4.69.1':
-    resolution: {integrity: sha512-ohxv/4KZSG03UmjDo//eIjedRRQEcIc0w4IjbyBcMS4mdkvTVMQwfNm1Ivxj4z35xIwpQbJ+1sGKq3l4vTaFiA==}
+  '@jsonjoy.com/fs-core@4.71.0':
+    resolution: {integrity: sha512-9DFR/j+bm+tig1abs1CWS1/r0IVjNUdTp/+q6R/PXayXpO1rgbUh7tkanGYP40I0zdxbOreN3tmzBpVHgfMKzg==}
     engines: {node: '>=10.0'}
     peerDependencies:
       tslib: '2'
 
-  '@jsonjoy.com/fs-fsa@4.69.1':
-    resolution: {integrity: sha512-z9IfdQyZGXL9GB9gv+dXRuMjOjY8s2EmFQ8DhdxxjFJGfPITDDW1j/W84jlBr2SmCc+yv47yYiNQ3powkqWGVQ==}
+  '@jsonjoy.com/fs-fsa@4.71.0':
+    resolution: {integrity: sha512-dRw5ojxzep3lntVGVBLzQUMYj1hXLH+DAz9sK0vKU+594x/zA2nYPOiitlyhYtOJ2nv1FXNq7c55rgwANknIWw==}
     engines: {node: '>=10.0'}
     peerDependencies:
       tslib: '2'
 
-  '@jsonjoy.com/fs-node-builtins@4.69.1':
-    resolution: {integrity: sha512-nJddTKNx2FrH+fNRHcHJpCD8bwZlQmYaT8SPEG86kKUae5XzWU5hXdk9T4vKU9yBoXfT2po1A3K/twf8ujBd0g==}
+  '@jsonjoy.com/fs-node-builtins@4.71.0':
+    resolution: {integrity: sha512-BSzl+QFSxZF58BxGjV1wqCJ+qSn3b2IZnb+z3hDQq6goqOO5RuxF8gRihjsFx17AfpEpa7XjYcP8XpQtDU8RrQ==}
     engines: {node: '>=10.0'}
     peerDependencies:
       tslib: '2'
 
-  '@jsonjoy.com/fs-node-to-fsa@4.69.1':
-    resolution: {integrity: sha512-1GTORTbZ2GcshGyaGNgqJAm/INOWyTdHMbeuj2CsBWKYEQYHW4ZvkKHaR+46SO762skZcNVja3dLIfk3s1AdcQ==}
+  '@jsonjoy.com/fs-node-to-fsa@4.71.0':
+    resolution: {integrity: sha512-OlXBZKIeDx5bIGcQmn0w+nVkLheCiuQSepKiBAiWSWimSdn8Q6Yc9ih2y8zStcJk31fieqnov9V+o8XTWn/5Rw==}
     engines: {node: '>=10.0'}
     peerDependencies:
       tslib: '2'
 
-  '@jsonjoy.com/fs-node-utils@4.69.1':
-    resolution: {integrity: sha512-45kAGpkTUKBNRguS34fdBkXbkBuZM75oU+snf3kRjfQGWHmp93aNKHdtbqrVqxpOdOvWAFnMx+UN6rRSLN2p9g==}
+  '@jsonjoy.com/fs-node-utils@4.71.0':
+    resolution: {integrity: sha512-YtzCL3jbKYx6LHxqS9ymJ9Ob7SO9cucI+kpNO3LijGNFEjFbvNsTlHkvFgocAMAjUk96TpQTCsYkzFQi1CdlAA==}
     engines: {node: '>=10.0'}
     peerDependencies:
       tslib: '2'
 
-  '@jsonjoy.com/fs-node@4.69.1':
-    resolution: {integrity: sha512-oIIXv5EfAqj2Wsck9dDa5njbTyCpef4OV+W1h7cYrlph0rRIay91DIhNk+OdiwLgKHoqyBmUWRy3GXAHGiXQZw==}
+  '@jsonjoy.com/fs-node@4.71.0':
+    resolution: {integrity: sha512-yt5Ak0otPdHPIlmMvF16aLG2qSZL52EYJ7HOkYpBcIPWw+kmT1FtTSj4oiV2OUkJbG8pLzA+RhMgrlRl85QuBw==}
     engines: {node: '>=10.0'}
     peerDependencies:
       tslib: '2'
 
-  '@jsonjoy.com/fs-print@4.69.1':
-    resolution: {integrity: sha512-As9V7Ra/mHsjHQicor5PTTymcqPb2QRTonedIsMuqMz2JEAZIFdRy+qvi5O15lIe88fASxHQXLIU6H5G01kfxg==}
+  '@jsonjoy.com/fs-print@4.71.0':
+    resolution: {integrity: sha512-OhfDSdvyO8uGV0U11OP+mOeVCPgjuP1HqCGR/TdBQLxHoDEWJAK3KOP5fPXo57H7i3G0x0Vmv8xPRHDle4XGzA==}
     engines: {node: '>=10.0'}
     peerDependencies:
       tslib: '2'
 
-  '@jsonjoy.com/fs-snapshot@4.69.1':
-    resolution: {integrity: sha512-wUffyQdpDSh5RVA+oubKLMcorJfpxUia+ETYPnK6LK+myJ4YVDKWX4UMSjUCapvbhjZRxr6tvwYh4zE3aBpAuA==}
+  '@jsonjoy.com/fs-snapshot@4.71.0':
+    resolution: {integrity: sha512-md+Wov365xa9A3nfW9YQTHLcweHHAee/e/0UoVRbldEHxboPJknuO3sEkNVVECO0dTqKra/ERaQylAMRrGWd0Q==}
     engines: {node: '>=10.0'}
     peerDependencies:
       tslib: '2'
@@ -472,8 +573,8 @@ packages:
       typescript:
         optional: true
 
-  '@rslint/core@0.9.0':
-    resolution: {integrity: sha512-rY8F6kdQ/XkBiflaNzglJdMfxl0Lv/NFXppK0kAhx2P2CvogsXIA/z82Wxtk+Cg9uFHou67N9/iqmWXgdtSoDw==}
+  '@rslint/core@0.9.1':
+    resolution: {integrity: sha512-MRS6lS+GiobBr+iIl5iFAYfwhhxVJX28lB6uVnwH40U49DCPUF0J2qlKI7RewPKDmKp5uosKJcvpxE8Rm7aVcg==}
     hasBin: true
     peerDependencies:
       jiti: ^2.7.0
@@ -481,47 +582,47 @@ packages:
       jiti:
         optional: true
 
-  '@rslint/native-darwin-arm64@0.9.0':
-    resolution: {integrity: sha512-xhdBrVALZTX0v4ZghKY7RGO87DpItk4DVvKm3MGih4w1o2WF2u+6n/mohvG7/ts7c8T88HIbLfK4luQ8kMDCsg==}
+  '@rslint/native-darwin-arm64@0.9.1':
+    resolution: {integrity: sha512-WuWZObUanaYI+93vnld+3LNXJeCkMA5ntkBs8VMptBrPa64H4K/WEm4BN1Z8NLjW5TnYWhG1wVgRE2Ie8UeSYg==}
     cpu: [arm64]
     os: [darwin]
 
-  '@rslint/native-darwin-x64@0.9.0':
-    resolution: {integrity: sha512-xuluXYUKizRZD/70WILvn+OeNdBT6izU81vhiNHVYdEQmfsqaqE8fthKGmQvaRu/DNL3CgVRPR+PzOAcQzPpOw==}
+  '@rslint/native-darwin-x64@0.9.1':
+    resolution: {integrity: sha512-Pce+LuyMmqBNwPjXMg5MEgo3nu36H3p7FyAwWEn8dlmUAQPhe3BQQ73fa7TT/97I9yfXY+YmJVRjLuctHQKmbw==}
     cpu: [x64]
     os: [darwin]
 
-  '@rslint/native-linux-arm64-gnu@0.9.0':
-    resolution: {integrity: sha512-J9uHBg/8Z9WanEKBXaPNZz0h+P8qtOLwjVqwEcOwYm1yLHRY70A7XqI6cRVIx72gXKGWtNBT2BRw9p8CWQUhgg==}
+  '@rslint/native-linux-arm64-gnu@0.9.1':
+    resolution: {integrity: sha512-pzt13FMri+oYevnR1xXo8CJkwr+RjxCFGJnYxoJ4C3jUKJLK+aJTlREDX1gnCMAXxx02YIUAqBrc4zQ09PAKsw==}
     cpu: [arm64]
     os: [linux]
     libc: [glibc]
 
-  '@rslint/native-linux-arm64-musl@0.9.0':
-    resolution: {integrity: sha512-3ICIPH1oZOuMuZp+4hRhU+Af34U/2MNFB1yN+yi/jfJP+qBEExQbeBOS4J6HOecx9RJXcFvPF2ZI68l4g8/DPQ==}
+  '@rslint/native-linux-arm64-musl@0.9.1':
+    resolution: {integrity: sha512-+fe6CNu+C5mshQ0hDyi/NakM3rqMyvMqKUf5ldNTQhaNUYavdb9cP7yXJw/H6qwHB6wbZIqSDo3b6HohzgnBkw==}
     cpu: [arm64]
     os: [linux]
     libc: [musl]
 
-  '@rslint/native-linux-x64-gnu@0.9.0':
-    resolution: {integrity: sha512-vlzcruA/t+0XvdK2S0bIS00H9Mpkrwo/hIFvpyUONgxi2WaO7XNDtgTWAsajB40WmvezYYLKs45LgkVXpxSCFA==}
+  '@rslint/native-linux-x64-gnu@0.9.1':
+    resolution: {integrity: sha512-119QVNJATOI21fGB5OsYfu0DXo7UMyyEpLi9TCogiZQF1X9QkPDdH0DXVQb2yi/H8H6FlNXak91G5vJ2W0SY2w==}
     cpu: [x64]
     os: [linux]
     libc: [glibc]
 
-  '@rslint/native-linux-x64-musl@0.9.0':
-    resolution: {integrity: sha512-+gPExuOtSPaP7jAWeMRnTobvQOhaqo9857K/7T2qvc15ksnYqqygMhzcVzm9Wt7L4KBoW6PR1uvwgmPaK4B0IA==}
+  '@rslint/native-linux-x64-musl@0.9.1':
+    resolution: {integrity: sha512-eUkiywQGG0umzYU86n1ZetCPBS1bLUFJZkFB+MovbDQQF+V9R6xA7x2mJvODnA7laOB3e7VK/uF56RvUebtzXQ==}
     cpu: [x64]
     os: [linux]
     libc: [musl]
 
-  '@rslint/native-win32-arm64-msvc@0.9.0':
-    resolution: {integrity: sha512-YK5uTuk6zNXru2cOwivbZPH25C7u8RSQlKm5tOqwhaQ0ShCVDdh7z0SXvHvLdQ2VJen+30Vp1izAMZ7Zp/8KaQ==}
+  '@rslint/native-win32-arm64-msvc@0.9.1':
+    resolution: {integrity: sha512-e0GLvCYh2XiQtVoFxbeU/QuM1mC6PWQATZbPN6fxfB4ZFH3S8KbcYCNFJyTEHp5WbU4XFJnut1qEf2u8pBoADA==}
     cpu: [arm64]
     os: [win32]
 
-  '@rslint/native-win32-x64-msvc@0.9.0':
-    resolution: {integrity: sha512-7elW5V8zm3McqA0LCjBBR7SDwQ5hRW+hrnJcCmrspSnBeUPFqnJfvUvsQPgbJz3pdrkBzzjZMvUgEYyBQ9dl8A==}
+  '@rslint/native-win32-x64-msvc@0.9.1':
+    resolution: {integrity: sha512-pofbo2UYBjK/OwNstlBEH89/XMUllp3PVTz21wQ7ryu3yH8atCzP2CX4Jv8IQ7eWpDJyMALhkXeEy5bsbI04xw==}
     cpu: [x64]
     os: [win32]
 
@@ -1148,8 +1249,8 @@ packages:
   mdast-util-to-string@4.0.0:
     resolution: {integrity: sha512-0H44vDimn51F0YwvxSJSm0eCDOJTRlmN0R1yBh4HLj9wiV1Dn0QoXGbvFAWj2hSItVTlCmBF1hqKlIyUBVFLPg==}
 
-  memfs@4.69.1:
-    resolution: {integrity: sha512-x4Ion23tLmo/6CTNYrKriwACRWlsw5hg+ZDYr4sRriYiZEu04UmK+7ZE/jXjAeDfe2DlL4UIFAVKllqZlWCJ+g==}
+  memfs@4.71.0:
+    resolution: {integrity: sha512-Zwrk7TpTXBkic7taZL+2QeppbauG0QOufRsT1zuXDYLW8jCajH0W1VSZ17+I7ODqiNbH9J1Vf1QJCqFlCfurDg==}
 
   memorystream@0.3.1:
     resolution: {integrity: sha512-S3UwM3yj5mtUSEfP41UZmt/0SCoVYUcU1rkXv+BQ5Ig8ndL4sPoJNBUJERafdPb5jjHJGuMgytgKvKIf58XNBw==}
@@ -1647,59 +1748,59 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  '@jsonjoy.com/fs-core@4.69.1(tslib@2.8.1)':
+  '@jsonjoy.com/fs-core@4.71.0(tslib@2.8.1)':
     dependencies:
-      '@jsonjoy.com/fs-node-builtins': 4.69.1(tslib@2.8.1)
-      '@jsonjoy.com/fs-node-utils': 4.69.1(tslib@2.8.1)
+      '@jsonjoy.com/fs-node-builtins': 4.71.0(tslib@2.8.1)
+      '@jsonjoy.com/fs-node-utils': 4.71.0(tslib@2.8.1)
       thingies: 2.6.1(tslib@2.8.1)
       tslib: 2.8.1
 
-  '@jsonjoy.com/fs-fsa@4.69.1(tslib@2.8.1)':
+  '@jsonjoy.com/fs-fsa@4.71.0(tslib@2.8.1)':
     dependencies:
-      '@jsonjoy.com/fs-core': 4.69.1(tslib@2.8.1)
-      '@jsonjoy.com/fs-node-builtins': 4.69.1(tslib@2.8.1)
-      '@jsonjoy.com/fs-node-utils': 4.69.1(tslib@2.8.1)
+      '@jsonjoy.com/fs-core': 4.71.0(tslib@2.8.1)
+      '@jsonjoy.com/fs-node-builtins': 4.71.0(tslib@2.8.1)
+      '@jsonjoy.com/fs-node-utils': 4.71.0(tslib@2.8.1)
       thingies: 2.6.1(tslib@2.8.1)
       tslib: 2.8.1
 
-  '@jsonjoy.com/fs-node-builtins@4.69.1(tslib@2.8.1)':
+  '@jsonjoy.com/fs-node-builtins@4.71.0(tslib@2.8.1)':
     dependencies:
       tslib: 2.8.1
 
-  '@jsonjoy.com/fs-node-to-fsa@4.69.1(tslib@2.8.1)':
+  '@jsonjoy.com/fs-node-to-fsa@4.71.0(tslib@2.8.1)':
     dependencies:
-      '@jsonjoy.com/fs-fsa': 4.69.1(tslib@2.8.1)
-      '@jsonjoy.com/fs-node-builtins': 4.69.1(tslib@2.8.1)
-      '@jsonjoy.com/fs-node-utils': 4.69.1(tslib@2.8.1)
+      '@jsonjoy.com/fs-fsa': 4.71.0(tslib@2.8.1)
+      '@jsonjoy.com/fs-node-builtins': 4.71.0(tslib@2.8.1)
+      '@jsonjoy.com/fs-node-utils': 4.71.0(tslib@2.8.1)
       tslib: 2.8.1
 
-  '@jsonjoy.com/fs-node-utils@4.69.1(tslib@2.8.1)':
+  '@jsonjoy.com/fs-node-utils@4.71.0(tslib@2.8.1)':
     dependencies:
-      '@jsonjoy.com/fs-node-builtins': 4.69.1(tslib@2.8.1)
+      '@jsonjoy.com/fs-node-builtins': 4.71.0(tslib@2.8.1)
       glob-to-regex.js: 1.2.0(tslib@2.8.1)
       tslib: 2.8.1
 
-  '@jsonjoy.com/fs-node@4.69.1(tslib@2.8.1)':
+  '@jsonjoy.com/fs-node@4.71.0(tslib@2.8.1)':
     dependencies:
-      '@jsonjoy.com/fs-core': 4.69.1(tslib@2.8.1)
-      '@jsonjoy.com/fs-node-builtins': 4.69.1(tslib@2.8.1)
-      '@jsonjoy.com/fs-node-utils': 4.69.1(tslib@2.8.1)
-      '@jsonjoy.com/fs-print': 4.69.1(tslib@2.8.1)
-      '@jsonjoy.com/fs-snapshot': 4.69.1(tslib@2.8.1)
+      '@jsonjoy.com/fs-core': 4.71.0(tslib@2.8.1)
+      '@jsonjoy.com/fs-node-builtins': 4.71.0(tslib@2.8.1)
+      '@jsonjoy.com/fs-node-utils': 4.71.0(tslib@2.8.1)
+      '@jsonjoy.com/fs-print': 4.71.0(tslib@2.8.1)
+      '@jsonjoy.com/fs-snapshot': 4.71.0(tslib@2.8.1)
       glob-to-regex.js: 1.2.0(tslib@2.8.1)
       thingies: 2.6.1(tslib@2.8.1)
       tslib: 2.8.1
 
-  '@jsonjoy.com/fs-print@4.69.1(tslib@2.8.1)':
+  '@jsonjoy.com/fs-print@4.71.0(tslib@2.8.1)':
     dependencies:
-      '@jsonjoy.com/fs-node-utils': 4.69.1(tslib@2.8.1)
+      '@jsonjoy.com/fs-node-utils': 4.71.0(tslib@2.8.1)
       tree-dump: 1.1.0(tslib@2.8.1)
       tslib: 2.8.1
 
-  '@jsonjoy.com/fs-snapshot@4.69.1(tslib@2.8.1)':
+  '@jsonjoy.com/fs-snapshot@4.71.0(tslib@2.8.1)':
     dependencies:
       '@jsonjoy.com/buffers': 17.67.0(tslib@2.8.1)
-      '@jsonjoy.com/fs-node-utils': 4.69.1(tslib@2.8.1)
+      '@jsonjoy.com/fs-node-utils': 4.71.0(tslib@2.8.1)
       '@jsonjoy.com/json-pack': 17.67.0(tslib@2.8.1)
       '@jsonjoy.com/util': 17.67.0(tslib@2.8.1)
       tslib: 2.8.1
@@ -1973,41 +2074,41 @@ snapshots:
       - '@module-federation/runtime-tools'
       - core-js
 
-  '@rslint/core@0.9.0':
+  '@rslint/core@0.9.1':
     dependencies:
       picomatch: 4.0.7
     optionalDependencies:
-      '@rslint/native-darwin-arm64': 0.9.0
-      '@rslint/native-darwin-x64': 0.9.0
-      '@rslint/native-linux-arm64-gnu': 0.9.0
-      '@rslint/native-linux-arm64-musl': 0.9.0
-      '@rslint/native-linux-x64-gnu': 0.9.0
-      '@rslint/native-linux-x64-musl': 0.9.0
-      '@rslint/native-win32-arm64-msvc': 0.9.0
-      '@rslint/native-win32-x64-msvc': 0.9.0
+      '@rslint/native-darwin-arm64': 0.9.1
+      '@rslint/native-darwin-x64': 0.9.1
+      '@rslint/native-linux-arm64-gnu': 0.9.1
+      '@rslint/native-linux-arm64-musl': 0.9.1
+      '@rslint/native-linux-x64-gnu': 0.9.1
+      '@rslint/native-linux-x64-musl': 0.9.1
+      '@rslint/native-win32-arm64-msvc': 0.9.1
+      '@rslint/native-win32-x64-msvc': 0.9.1
 
-  '@rslint/native-darwin-arm64@0.9.0':
+  '@rslint/native-darwin-arm64@0.9.1':
     optional: true
 
-  '@rslint/native-darwin-x64@0.9.0':
+  '@rslint/native-darwin-x64@0.9.1':
     optional: true
 
-  '@rslint/native-linux-arm64-gnu@0.9.0':
+  '@rslint/native-linux-arm64-gnu@0.9.1':
     optional: true
 
-  '@rslint/native-linux-arm64-musl@0.9.0':
+  '@rslint/native-linux-arm64-musl@0.9.1':
     optional: true
 
-  '@rslint/native-linux-x64-gnu@0.9.0':
+  '@rslint/native-linux-x64-gnu@0.9.1':
     optional: true
 
-  '@rslint/native-linux-x64-musl@0.9.0':
+  '@rslint/native-linux-x64-musl@0.9.1':
     optional: true
 
-  '@rslint/native-win32-arm64-msvc@0.9.0':
+  '@rslint/native-win32-arm64-msvc@0.9.1':
     optional: true
 
-  '@rslint/native-win32-x64-msvc@0.9.0':
+  '@rslint/native-win32-x64-msvc@0.9.1':
     optional: true
 
   '@rspack/binding-darwin-arm64@2.2.2':
@@ -2589,16 +2690,16 @@ snapshots:
     dependencies:
       '@types/mdast': 4.0.4
 
-  memfs@4.69.1:
+  memfs@4.71.0:
     dependencies:
-      '@jsonjoy.com/fs-core': 4.69.1(tslib@2.8.1)
-      '@jsonjoy.com/fs-fsa': 4.69.1(tslib@2.8.1)
-      '@jsonjoy.com/fs-node': 4.69.1(tslib@2.8.1)
-      '@jsonjoy.com/fs-node-builtins': 4.69.1(tslib@2.8.1)
-      '@jsonjoy.com/fs-node-to-fsa': 4.69.1(tslib@2.8.1)
-      '@jsonjoy.com/fs-node-utils': 4.69.1(tslib@2.8.1)
-      '@jsonjoy.com/fs-print': 4.69.1(tslib@2.8.1)
-      '@jsonjoy.com/fs-snapshot': 4.69.1(tslib@2.8.1)
+      '@jsonjoy.com/fs-core': 4.71.0(tslib@2.8.1)
+      '@jsonjoy.com/fs-fsa': 4.71.0(tslib@2.8.1)
+      '@jsonjoy.com/fs-node': 4.71.0(tslib@2.8.1)
+      '@jsonjoy.com/fs-node-builtins': 4.71.0(tslib@2.8.1)
+      '@jsonjoy.com/fs-node-to-fsa': 4.71.0(tslib@2.8.1)
+      '@jsonjoy.com/fs-node-utils': 4.71.0(tslib@2.8.1)
+      '@jsonjoy.com/fs-print': 4.71.0(tslib@2.8.1)
+      '@jsonjoy.com/fs-snapshot': 4.71.0(tslib@2.8.1)
       '@jsonjoy.com/json-pack': 1.21.0(tslib@2.8.1)
       '@jsonjoy.com/util': 1.9.0(tslib@2.8.1)
       glob-to-regex.js: 1.2.0(tslib@2.8.1)
@@ -2954,7 +3055,7 @@ snapshots:
     dependencies:
       '@rspack/lite-tapable': 1.1.5
       chokidar: 3.6.0
-      memfs: 4.69.1
+      memfs: 4.71.0
       picocolors: 1.1.1
       typescript: 7.0.2
     optionalDependencies:
