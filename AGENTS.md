@@ -10,7 +10,7 @@ You are an expert in TypeScript, Rsbuild, Rslib, Rstest, and library development
 - **Language**: TypeScript 7
 - **Package manager**: pnpm (do not use npm or yarn)
 
-**Last updated**: 2026-08-28
+**Last updated**: 2026-09-12
 **Verified with**: `package.json` in this repository
 
 ### Tool Versions
@@ -20,9 +20,9 @@ See `package.json` for authoritative dependency versions.
 This guide assumes:
 
 - TypeScript 7.0.2 or later
-- Rsbuild 2.2.1 or later
-- Rslib 0.23.2 or later
-- Rstest 0.11.10 or later
+- Rsbuild 2.2.5 or later
+- Rslib 1.00.2 or later
+- Rstest 0.11.12 or later
 
 **If you encounter version-related issues, check `package.json` directly—it is the source of truth.**
 
@@ -77,24 +77,27 @@ making the build pipeline transparent and maintainable.
 
 ## Commands
 
-- `pnpm run build` - Build the library for production
-- `pnpm run build:demo` - Build the demo site
 - `pnpm run dev` - Watch mode for library
 - `pnpm run dev:demo` - Dev server with hot reload
-- `pnpm run preview` - Preview the built demo site
-- `pnpm run test` - Run tests
-- `pnpm run test:watch` - Watch mode for tests
 - `pnpm run lint` - Lint and format all code (Biome + Rslint)
+- `pnpm run analyze` - Analyze library build artifacts
+- `pnpm run analyze:demo` - Analyze demo site build artifacts.
+- `pnpm run test` - Run tests at once
+- `pnpm run test:watch` - Watch mode for tests
+- `pnpm run clean` - Remove build artifacts
+- `pnpm run clean:hard` - Remove build artifact and build caches
+- `pnpm run build` - Build the library for production
+- `pnpm run build:demo` - Build the demo site
+- `pnpm run preview` - Preview the built demo site
 - `pnpm run inspect` - Inspect final rslib config
 - `pnpm run inspect:demo` - Inspect final rsbuild config
-- `pnpm run clean` - Remove build artifacts
-- `pnpm run clean:hard` - Remove build artifact and build caches.
 
 ## Documentation
 
 - Mmodule Federation: <https://module-federation.io/llms.txt>
-- Rslib: <https://rslib.rs/llms.txt>
 - Rsbuild: <https://rsbuild.rs/llms.txt>
+- Rsdoctor: <https://rsdoctor.rs/llms.txt>
+- Rslib: <https://rslib.rs/llms.txt>
 - Rslint: <https://rslint.rs/llms.txt>
 - Rstest: <https://rstest.rs/llms.txt>
 

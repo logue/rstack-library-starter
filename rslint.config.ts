@@ -67,7 +67,7 @@ export default defineConfig([
   promisePlugin.configs.recommended,
   unicornPlugin.configs.recommended,
   reactPlugin.configs.recommended,
-  reactHooksPlugin.configs.recommended,
+  reactHooksPlugin.configs.recommended, // Comment out this line when using Vue.
   jsxA11yPlugin.configs.recommended,
 
   {
@@ -141,7 +141,7 @@ export default defineConfig([
             {
               group: 'builtin',
               pattern:
-                '{@rsbuild/**,@rslint/**,@rslib/*,@rspack/**,@rstest/**}',
+                '{@rsbuild/**,@rsdoctor/**,@rslint/**,@rslib/*,@rspack/**,@rstest/**}',
               position: 'before',
             },
             {

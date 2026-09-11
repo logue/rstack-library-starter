@@ -1,6 +1,7 @@
 /** For build demo site use. */
 import { defineConfig } from '@rsbuild/core';
 import { pluginTypeCheck } from '@rsbuild/plugin-type-check';
+import { RsdoctorRspackPlugin } from '@rsdoctor/rspack-plugin';
 
 import { readFileSync } from 'node:fs';
 
@@ -36,5 +37,15 @@ export default defineConfig({
       './src',
     ],
     tsconfigPath: './tsconfig.rsbuild.json',
+  },
+  tools: {
+    rspack: {
+      plugins: [
+        process.env.RSDOCTOR === 'true' &&
+          new RsdoctorRspackPlugin({
+            // plugin options
+          }),
+      ],
+    },
   },
 });

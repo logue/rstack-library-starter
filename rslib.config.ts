@@ -1,5 +1,6 @@
 /** For build library use */
 import { pluginTypeCheck } from '@rsbuild/plugin-type-check';
+import { RsdoctorRspackPlugin } from '@rsdoctor/rspack-plugin';
 import { defineConfig } from '@rslib/core';
 
 import { readFileSync } from 'node:fs';
@@ -123,5 +124,15 @@ export default defineConfig({
       __BUILD_DATE__: JSON.stringify(buildDate),
     },
     tsconfigPath: './tsconfig.rslib.json',
+  },
+  tools: {
+    rspack: {
+      plugins: [
+        process.env.RSDOCTOR === 'true' &&
+          new RsdoctorRspackPlugin({
+            // plugin options
+          }),
+      ],
+    },
   },
 });
