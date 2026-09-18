@@ -5,8 +5,6 @@ import { defineConfig } from '@rslib/core';
 
 import { readFileSync } from 'node:fs';
 
-import { pluginModuleFederation } from '@module-federation/rsbuild-plugin';
-
 /**
  * The UMD name is used for the global variable name when the library
  * is included via a <script> tag.
@@ -52,23 +50,6 @@ const bannerText = `/**
 export default defineConfig({
   plugins: [
     pluginTypeCheck(),
-    pluginModuleFederation({
-      exposes: {
-        '.': './src/index.ts',
-      },
-      name: umdName,
-      shared: {
-        react: {
-          singleton: true,
-        },
-        'react-dom': {
-          singleton: true,
-        },
-        vue: {
-          singleton: true,
-        },
-      },
-    }),
   ],
   banner: {
     css: bannerText,
@@ -111,11 +92,6 @@ export default defineConfig({
       },
       syntax: 'es2020',
       umdName,
-    },
-    {
-      // Module Federation
-      format: 'mf',
-      splitChunks: false,
     },
   ],
   source: {
