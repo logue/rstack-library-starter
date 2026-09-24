@@ -34,12 +34,6 @@ Build the library in watch mode:
 pnpm run dev
 ```
 
-Build the library with Web in watch mode:
-
-```bash
-pnpm run dev:docs
-```
-
 Run tests:
 
 ```bash
@@ -51,13 +45,6 @@ Run tests in watch mode:
 ```bash
 pnpm run test:watch
 ```
-
-### VSCode Configuration
-
-The `.vscode/settings.json` sets Biome as the formatter for this project only.
-This does not affect your global VSCode configuration or other projects.
-
-If you use Prettier globally, it will continue to work for other projects.
 
 ### TypeScript Configuration
 
@@ -75,28 +62,7 @@ for optimal type-checking performance:
 
 ## Optional: 🪝 Git Hooks (Recommended for Teams)
 
-If your team wants to enforce linting pre-commit,
-consider setting up husky and lint-staged:
-
-```bash
-pnpm add -D husky lint-staged
-npx husky install
-```
-
-Then add a `pre-commit` file to the `.husky` directory with:
-
-```bash
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
-
-pnpm exec lint-staged
-```
-
-Alternatively, you can create it with:
-
-```bash
-npx husky add .husky/pre-commit "pnpm exec lint-staged"
-```
+Use rstack hooks: <https://rstack.rs/guide/cli/hooks>
 
 ## 🔒️ Safety Measures
 
@@ -116,7 +82,7 @@ When using this template, follow the checklist to update your info properly.
 
 - [ ] Change the author name in LICENSE
 - [ ] Update package name and metadata in `package.json`
-- [ ] Change `umdName` in `rslib.config.ts`
+- [ ] Change `umdName` in `rstack.config.ts`
 - [ ] **Set `"private": false`** (currently `true` as a safety measure)
 - [ ] Review and adapt `AGENTS.md` for your project conventions
 - [ ] Clean up the READMEs

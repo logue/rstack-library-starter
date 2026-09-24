@@ -9,6 +9,7 @@
       "@/*": ["./src/*"]
     },
     "rootDir": "./",
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.rsbuild.tsbuildinfo"
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.rsbuild.tsbuildinfo",
+    "types": ["rstack/types", "node"]
   }
 }
