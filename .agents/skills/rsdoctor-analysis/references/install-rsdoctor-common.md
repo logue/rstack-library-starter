@@ -47,11 +47,11 @@ new RsdoctorRspackPlugin({
   // or RsdoctorWebpackPlugin
   disableClientServer: true,
   output: {
-    mode: 'brief',
+    mode: "brief",
     options: {
-      type: ['json'],
+      type: ["json"],
     },
-    reportDir: './dist', // Custom output directory (defaults to build output directory)
+    reportDir: "./dist", // Custom output directory (defaults to build output directory)
   },
 });
 ```

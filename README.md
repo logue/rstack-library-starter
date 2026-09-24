@@ -2,8 +2,7 @@
 
 [![TypeScript](https://img.shields.io/badge/TypeScript-7-%230074c1.svg)](http://www.typescriptlang.org/)
 [![pnpm](https://img.shields.io/badge/pnpm-12-pink.svg)](https://pnpm.io/)
-[![Rsbuild](https://img.shields.io/badge/rsbuild-2-orange.svg)](https://rsbuild.rs/)
-[![Rsblib](https://img.shields.io/badge/rslib-1-yellow.svg)](https://rsbuild.rs/)
+[![Rstack](https://img.shields.io/badge/rsbuild-0.8.0-orange.svg)](https://rstack.rs/)
 [![X Follow](https://img.shields.io/twitter/follow/logue256?style=plastic)](https://x.com/logue256)
 [![GitHub Sponsors](https://img.shields.io/github/sponsors/logue?label=Sponsor&logo=github&color=ea4aaa)](https://github.com/sponsors/logue)
 
@@ -52,16 +51,6 @@ Run tests in watch mode:
 ```bash
 pnpm run test:watch
 ```
-
-Inspect the configs of Rslib projects
-
-```bash
-pnpm run inspect
-```
-
-## Development Environment
-
-This template uses [Biome](https://biomejs.dev/) as the default formatter.
 
 ### VSCode Configuration
 

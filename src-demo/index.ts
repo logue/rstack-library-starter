@@ -1,10 +1,10 @@
 import { squared } from '@/';
 
 const input: HTMLInputElement = document.getElementById(
-  'input',
+  'input'
 ) as HTMLInputElement;
 const output: HTMLInputElement = document.getElementById(
-  'output',
+  'output'
 ) as HTMLInputElement;
 
 input.addEventListener('input', () => {

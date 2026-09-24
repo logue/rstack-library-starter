@@ -1,11 +1,8 @@
 {
-  "mcpServers": {
+  "servers": {
     "rsdoctor": {
       "command": "npx",
-      "args": [
-        "-y",
-        "@rsdoctor/mcp-server@latest"
-      ]
+      "args": ["-y", "@rsdoctor/mcp-server@latest"]
     }
   }
 }

@@ -1,16 +1,20 @@
 # AGENTS.md
 
-You are an expert in TypeScript, Rsbuild, Rslib, Rstest, and library development. You write maintainable, performant, and accessible code.
+This project uses Rstack CLI as its JS toolchain:
+
+- Read the docs linked from `node_modules/rstack/docs/llms.txt` when needed
+- Online docs: <https://rstack.rs/llms.txt>
+- Run `rs -h` for CLI help
 
 ## Setup & Overview
 
 - **Build tool**: Rslib (for build library), Rsbuild (for demo site)
-- **Linter**: Rslint and Biome (with `@logue/biome-plugins` custom rules)
+- **Linter**: Rslint and Prettir
 - **Testing**: Rstest
 - **Language**: TypeScript 7
 - **Package manager**: pnpm (do not use npm or yarn)
 
-**Last updated**: 2026-09-12
+**Last updated**: 2026-09-24
 **Verified with**: `package.json` in this repository
 
 ### Tool Versions
@@ -20,9 +24,7 @@ See `package.json` for authoritative dependency versions.
 This guide assumes:
 
 - TypeScript 7.0.2 or later
-- Rsbuild 2.2.5 or later
-- Rslib 1.00.2 or later
-- Rstest 0.11.12 or later
+- rstack 0.8.0 or later
 
 **If you encounter version-related issues, check `package.json` directly—it is the source of truth.**
 
@@ -46,72 +48,44 @@ When you open the project in VS Code, you'll be prompted to install recommended 
 
 ### Project Structure
 
-This project uses two complementary build tools:
+This project uses the Rstack CLI as a unified interface for the library,
+demo application, tests, and linting:
 
-- **Rslib** - Builds the library for distribution (ESM, CJS, etc.)
+- **Rslib** - Builds the library for distribution (ESM and UMD)
   - Command: `pnpm run build`
   - Output: `dist/` (published to npm)
-  - Configuration: `rslib.config.ts`, `tsconfig.rslib.json`
-- **Rsbuild** - Builds the demo and documentation site
+- **Rsbuild** - Builds the demo application
   - Command: `pnpm run build:demo`
   - Output: `demo/` (for manual testing and validation)
-  - Configuration: `rsbuild.config.ts`, `tsconfig.rsbuild.json`
-  - Purpose: Interactive demo to verify library functionality during development
+- **Rstest** - Runs the test suite
+  - Command: `pnpm run test`
+- **Rslint and Biome** - Lints and formats the project
+  - Command: `pnpm run lint`
 
-#### TypeScript Configuration Strategy
+All tool configuration is defined in `rstack.config.ts` through
+`define.app`, `define.lib`, `define.test`, and `define.lint`.
+TypeScript compiler options remain separated by use case:
 
-TypeScript configurations are organized by **tool name, not by purpose**:
-
-- `tsconfig.rslib.json` - Library bundling configuration
-- `tsconfig.rsbuild.json` - Demo/documentation site configuration
-- `tsconfig.rstest.json` - Testing configuration (if applicable)
-
-This approach eliminates conditional branching based on build purpose.
-Instead, each tool has its own explicit configuration namespace,
-making the build pipeline transparent and maintainable.
+- `tsconfig.rslib.json` - Library source and declaration generation
+- `tsconfig.rsbuild.json` - Demo application
+- `tsconfig.rstest.json` - Tests
 
 ### Development Workflow
 
-- `pnpm run dev` - Watch mode for library
-- `pnpm run dev:docs` - Local dev server for demo site with hot reload
+- `pnpm run dev` - Start the demo development server with hot reload
+- `pnpm run build` - Build the library for production
+- `pnpm run build:demo` - Build the demo application
+- `pnpm run preview` - Preview the built demo application
 
 ## Commands
 
-- `pnpm run dev` - Watch mode for library
-- `pnpm run dev:demo` - Dev server with hot reload
+- `pnpm run dev` - Start the demo development server with hot reload
 - `pnpm run lint` - Lint and format all code (Biome + Rslint)
 - `pnpm run analyze` - Analyze library build artifacts
-- `pnpm run analyze:demo` - Analyze demo site build artifacts.
 - `pnpm run test` - Run tests at once
 - `pnpm run test:watch` - Watch mode for tests
 - `pnpm run clean` - Remove build artifacts
 - `pnpm run clean:hard` - Remove build artifact and build caches
-- `pnpm run build` - Build the library for production
-- `pnpm run build:demo` - Build the demo site
-- `pnpm run preview` - Preview the built demo site
-- `pnpm run inspect` - Inspect final rslib config
-- `pnpm run inspect:demo` - Inspect final rsbuild config
-
-## Documentation
-
-- Mmodule Federation: <https://module-federation.io/llms.txt>
-- Rsbuild: <https://rsbuild.rs/llms.txt>
-- Rsdoctor: <https://rsdoctor.rs/llms.txt>
-- Rslib: <https://rslib.rs/llms.txt>
-- Rslint: <https://rslint.rs/llms.txt>
-- Rstest: <https://rstest.rs/llms.txt>
-
-## Code Style
-
-TypeScript conventions, lint rules, and their rationale are defined in
-[`@logue/biome-plugins`](../biome-plugins/AGENTS.md). Read that file for the full
-picture. The summary of what is **enforced at lint time** in this project:
-
-| Rule                     | Severity | What it checks                                    |
-| ------------------------ | -------- | ------------------------------------------------- |
-| `enforce-pure-src`       | error    | No Storybook/demo imports inside `src/`           |
-| `prefer-union-over-enum` | error    | `enum` is forbidden; use union types              |
-| `no-null-type`           | warn     | `\| null` in type annotations; use optional (`?`) |
 
 ### Directory Structure & File Organization
 
