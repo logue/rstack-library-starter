@@ -14,7 +14,7 @@ This project uses Rstack CLI as its JS toolchain:
 - **Language**: TypeScript 7
 - **Package manager**: pnpm (do not use npm or yarn)
 
-**Last updated**: 2026-09-24
+**Last updated**: 2026-09-25
 **Verified with**: `package.json` in this repository
 
 ### Tool Versions
@@ -86,6 +86,39 @@ TypeScript compiler options remain separated by use case:
 - `pnpm run test:watch` - Watch mode for tests
 - `pnpm run clean` - Remove build artifacts
 - `pnpm run clean:hard` - Remove build artifact and build caches
+
+### Rsdoctor Analysis (AI Internal Use)
+
+Use Rsdoctor analysis internally to support evidence-based bundle optimization.
+Keep this workflow read-only unless the user explicitly asks for setup or code
+changes.
+
+- First locate a real `rsdoctor-data.json` in `dist/`, `output/`, `static/`,
+  `.rsdoctor/`, or via one bounded `rg --files` search excluding
+  `node_modules` and `.git`.
+- Do not run `rsdoctor-agent` when the data file is missing. Ask for its path,
+  or generate it with `pnpm run analyze` when generation is required.
+- `rsdoctor` from `@rsdoctor/cli` is only the browser viewer. It is not a
+  substitute for the data-fetching `rsdoctor-agent` from
+  `@rsdoctor/agent-cli`.
+- This repository uses `@rsdoctor/rspack-plugin` 1.6.x. If JSON output is not
+  produced by the normal script, use `RSDOCTOR_OUTPUT=json RSDOCTOR=true pnpm run build`.
+  For plugin versions below 1.5.11, configure brief JSON output instead of
+  using `RSDOCTOR_OUTPUT=json`.
+- Validate that the generated data is valid JSON before analysis. A
+  `.rsdoctor/manifest.json` file alone is only a viewer index.
+- Fetch only the default evidence first: build cost, top assets, top packages,
+  duplicate packages, cross-chunk duplication, and retained tree-shaking
+  modules. Bound output with filters, pagination, and limits.
+- Rank recommendations by measured impact. Trace issuer/reference chains,
+  inspect bailout reasons, change configuration, or rerun builds only as an
+  explicit follow-up.
+- Present findings as high-priority issues, proposed solutions, optional
+  reference-chain follow-ups, and remaining deep-dive categories. Include
+  concrete sizes, times, counts, paths, or rule codes where available.
+
+For command details and version-specific generation rules, read
+`.agents/skills/rsdoctor-analysis/SKILL.md` and its references.
 
 ### Directory Structure & File Organization
 

@@ -45,7 +45,7 @@ RSDOCTOR_OUTPUT=json RSDOCTOR=true pnpm run build
 For old Webpack plugin versions, unknown versions, missing plugins, or projects that still need to register the plugin, initialize it in the [plugins](https://webpack.js.org/configuration/plugins/#plugins) of `webpack.config.js`:
 
 ```js title="webpack.config.js"
-const { RsdoctorWebpackPlugin } = require("@rsdoctor/webpack-plugin");
+const { RsdoctorWebpackPlugin } = require('@rsdoctor/webpack-plugin');
 
 module.exports = {
   // ...
@@ -56,9 +56,9 @@ module.exports = {
         disableClientServer: true,
         // Required for @rsdoctor/webpack-plugin < 1.5.11.
         output: {
-          mode: "brief",
+          mode: 'brief',
           options: {
-            type: ["json"],
+            type: ['json'],
           },
         },
       }),

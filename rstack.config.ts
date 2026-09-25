@@ -1,10 +1,11 @@
 import { pluginTypeCheck } from '@rsbuild/plugin-type-check';
 import { RsdoctorRspackPlugin } from '@rsdoctor/rspack-plugin';
+import { define } from 'rstack';
 
 import { readFileSync } from 'node:fs';
 
 import markdownPlugin from '@eslint/markdown';
-import { define } from 'rstack';
+import prettierPlugin from 'eslint-config-prettier';
 
 /**
  * The UMD name is used for the global variable name when the library
@@ -72,7 +73,7 @@ const IGNORE_PATTERNS = [
   '**/coverage/**',
   '**/reports',
   '**/test-results',
-  // Built artifacts.
+  // Build artifacts.
   '**/demo/**',
   '**/dist-ssr/**',
   '**/dist/**',
@@ -182,6 +183,19 @@ define.app({
 });
 
 /**
+ * Rspress Config
+ * To use this, you will need to install @rspress/core separately.
+ *
+ * @see {@link https://rstack.rs/guide/cli/doc | Doc Config}
+ */
+/*
+define.doc({
+  root: 'docs',
+  title: 'My Site',
+});
+*/
+
+/**
  * Rstest Config
  * @see {@link https://rstest.rs/config/ | Rstest Config}
  */
@@ -197,23 +211,23 @@ define.test({
  */
 define.lint(
   ({
-    // https://rslint.rs/config/rules-and-presets
     globals,
-    importPlugin,
+    // See https://rslint.rs/config/rules-and-presets
     js,
-    jsxA11yPlugin,
-    promisePlugin,
-    reactHooksPlugin,
-    reactPlugin,
-    rstestPlugin,
-    // nodePlugin,
     ts,
-    unicornPlugin
+    reactPlugin,
+    reactHooksPlugin,
+    importPlugin,
+    // nodePlugin,
+    promisePlugin,
+    // jestPlugin,
+    rstestPlugin,
+    unicornPlugin,
+    jsxA11yPlugin
   }) => [
     {
       ignores: IGNORE_PATTERNS,
       languageOptions: {
-        ecmaVersion: 'latest',
         lobals: {
           ...globals.browser,
           ...globals.nodeBuiltin
@@ -277,7 +291,7 @@ define.lint(
         'import/no-relative-parent-imports': [
           'error',
           {
-            ignore: ['^@/', '^~/']
+            ignore: ['^@/']
           }
         ],
         'import/order': [
@@ -300,7 +314,7 @@ define.lint(
               {
                 group: 'builtin',
                 pattern:
-                  '{@rsbuild/**,@rsdoctor/**,@rslint/**,@rslib/*,@rspack/**,@rstest/**}',
+                  '{@rsbuild/**,@rsdoctor/**,@rslint/**,@rslib/*,@rspack/**,@rstest/**,rstack,rstack/**}',
                 position: 'before'
               },
               {
@@ -357,7 +371,8 @@ define.lint(
       files: DOC_FILES,
       plugins: ['markdown'],
       ...markdownPlugin.configs.recommended
-    }
+    },
+    prettierPlugin.rules
   ]
 );
 
@@ -377,7 +392,7 @@ define.fmt({
   arrowParens: 'avoid',
   endOfLine: 'lf',
   // Bellow is rstack options
-  // see
+  // see https://rstack.rs/guide/formatting
   ignorePatterns: IGNORE_PATTERNS,
   sortPackageJson: true
 });

@@ -53,7 +53,7 @@ Below are configuration examples for old Rspack plugin versions, unknown version
 Initialize the plugin in the [plugins](https://www.rspack.rs/config/plugins.html#plugins) of `rspack.config.ts`:
 
 ```ts title="rspack.config.ts"
-import { RsdoctorRspackPlugin } from "@rsdoctor/rspack-plugin";
+import { RsdoctorRspackPlugin } from '@rsdoctor/rspack-plugin';
 
 export default {
   plugins: [
@@ -63,9 +63,9 @@ export default {
         disableClientServer: true,
         // Required for @rsdoctor/rspack-plugin < 1.5.11.
         output: {
-          mode: "brief",
+          mode: 'brief',
           options: {
-            type: ["json"],
+            type: ['json'],
           },
         },
       }),
@@ -81,19 +81,19 @@ If this is Modern.js project can see [tools.rspack](https://modernjs.dev/configu
 For `@rsdoctor/rspack-plugin` < `1.5.11`, configure JSON output in `rsbuild.config.ts`:
 
 ```ts title="rsbuild.config.ts"
-import { RsdoctorRspackPlugin } from "@rsdoctor/rspack-plugin";
+import { RsdoctorRspackPlugin } from '@rsdoctor/rspack-plugin';
 
 export default {
   tools: {
     rspack: {
       plugins: [
-        process.env.RSDOCTOR === "true" &&
+        process.env.RSDOCTOR === 'true' &&
           new RsdoctorRspackPlugin({
             disableClientServer: true, // Prevent starting local server
             output: {
-              mode: "brief", // Required for plugin versions < 1.5.11
+              mode: 'brief', // Required for plugin versions < 1.5.11
               options: {
-                type: ["json"], // Only generate JSON data
+                type: ['json'], // Only generate JSON data
               },
             },
           }),
@@ -108,21 +108,21 @@ export default {
 For Rspress projects, configure the plugin in `builderConfig.tools.rspack`:
 
 ```ts title="rspress.config.ts"
-import { RsdoctorRspackPlugin } from "@rsdoctor/rspack-plugin";
-import { defineConfig } from "rspress/config";
+import { RsdoctorRspackPlugin } from '@rsdoctor/rspack-plugin';
+import { defineConfig } from 'rspress/config';
 
 export default defineConfig({
   builderConfig: {
     tools: {
       rspack: {
         plugins: [
-          process.env.RSDOCTOR === "true" &&
+          process.env.RSDOCTOR === 'true' &&
             new RsdoctorRspackPlugin({
               disableClientServer: true, // Prevent starting local server
               output: {
-                mode: "brief", // Required for plugin versions < 1.5.11
+                mode: 'brief', // Required for plugin versions < 1.5.11
                 options: {
-                  type: ["json"], // Only generate JSON data
+                  type: ['json'], // Only generate JSON data
                 },
               },
             }),

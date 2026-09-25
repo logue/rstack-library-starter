@@ -1,8 +1,5 @@
 /* rslint-disable @typescript-eslint/no-explicit-any */
-/** biome-ignore-all lint/correctness/noUnusedVariables: define variables use. */
-/** biome-ignore-all lint/suspicious/noExplicitAny: for custom file type (such as yaml, vue etc.) reading. */
 
-// see rslib.config.ts for details
 interface ImportMetaEnv {
   /** package.json version value. */
   readonly APP_VERSION: string;

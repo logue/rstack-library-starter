@@ -9,7 +9,7 @@ Read type definitions from the published npm package `@rsdoctor/types`. Do not u
 Brief JSON output has this wrapper shape:
 
 ```ts
-import type { Manifest, SDK } from "@rsdoctor/types";
+import type { Manifest, SDK } from '@rsdoctor/types';
 
 export interface RsdoctorDataJson {
   data: SDK.BuilderStoreData;

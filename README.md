@@ -25,7 +25,7 @@ pnpm run build
 Build for the web
 
 ```bash
-pnpm run build:docs
+pnpm run build:demo
 ```
 
 Build the library in watch mode:
@@ -44,6 +44,12 @@ Run tests in watch mode:
 
 ```bash
 pnpm run test:watch
+```
+
+Run build analysis. (Rsdoctor)
+
+```bash
+pnpm run analyze
 ```
 
 ### TypeScript Configuration
