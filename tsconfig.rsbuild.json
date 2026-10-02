@@ -1,7 +1,7 @@
 {
   "extends": "./tsconfig.rslib.json",
   "include": ["env.d.ts", "src/**/*", "src-demo/**/*"],
-  "exclude": ["src/**/__tests__/*"],
+  "exclude": ["**/node_modules", "src/**/__tests__/*"],
   "compilerOptions": {
     "lib": ["DOM"],
     "outDir": "demo",
@@ -9,7 +9,7 @@
       "@/*": ["./src/*"]
     },
     "rootDir": "./",
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.rsbuild.tsbuildinfo",
+    "tsBuildInfoFile": "./.rstack/tsconfig.rsbuild.tsbuildinfo",
     "types": ["rstack/types", "node"]
   }
 }

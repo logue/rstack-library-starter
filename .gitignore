@@ -18,6 +18,7 @@ reports/
 test-results/
 
 # Production / Build output
+target/
 dist/
 docs/
 demo/
@@ -28,8 +29,11 @@ logs
 *.log
 
 # Runtime data
+.cargo/config.toml
+.pnpm/crates/
 .rstack
 .rspack-profile-*
+.rsdoctor
 *.pid
 *.pid.lock
 *.seed
@@ -42,6 +46,7 @@ pids
 
 # Lockfiles
 *.lock
+!Cargo.lock
 # pnpm-lock.yaml # as you need to commit this file for reproducible builds
 # pnpm-workspace.yaml # as you need to commit this file for reproducible builds
 

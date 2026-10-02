@@ -8,13 +8,13 @@ This project uses Rstack CLI as its JS toolchain:
 
 ## Setup & Overview
 
-- **Build tool**: Rslib (for build library), Rsbuild (for demo site)
+- **Build tools**: Rslib (library), Rsbuild (demo site), Rspress (documentation)
 - **Linter**: Rslint and Prettir
 - **Testing**: Rstest
 - **Language**: TypeScript 7
 - **Package manager**: pnpm (do not use npm or yarn)
 
-**Last updated**: 2026-09-25
+**Last updated**: 2026-10-02
 **Verified with**: `package.json` in this repository
 
 ### Tool Versions
@@ -57,17 +57,22 @@ demo application, tests, and linting:
 - **Rsbuild** - Builds the demo application
   - Command: `pnpm run build:demo`
   - Output: `demo/` (for manual testing and validation)
+- **Rspress** - Builds the documentation site
+  - Source: `src-docs/`
+  - Command: `pnpm run build:docs`
+  - Output: `docs/`
 - **Rstest** - Runs the test suite
   - Command: `pnpm run test`
 - **Rslint and Biome** - Lints and formats the project
   - Command: `pnpm run lint`
 
 All tool configuration is defined in `rstack.config.ts` through
-`define.app`, `define.lib`, `define.test`, and `define.lint`.
+`define.app`, `define.doc`, `define.lib`, `define.test`, and `define.lint`.
 TypeScript compiler options remain separated by use case:
 
 - `tsconfig.rslib.json` - Library source and declaration generation
 - `tsconfig.rsbuild.json` - Demo application
+- `tsconfig.rspress.json` - Documentation site and theme
 - `tsconfig.rstest.json` - Tests
 
 ### Development Workflow
@@ -76,10 +81,16 @@ TypeScript compiler options remain separated by use case:
 - `pnpm run build` - Build the library for production
 - `pnpm run build:demo` - Build the demo application
 - `pnpm run preview` - Preview the built demo application
+- `pnpm run dev:docs` - Start the Rspress documentation server
+- `pnpm run build:docs` - Build the documentation into `docs/`
+- `pnpm run preview:docs` - Preview the built documentation site
 
 ## Commands
 
 - `pnpm run dev` - Start the demo development server with hot reload
+- `pnpm run dev:docs` - Start the Rspress documentation server
+- `pnpm run build:docs` - Build the documentation into `docs/`
+- `pnpm run preview:docs` - Preview the built documentation site
 - `pnpm run lint` - Lint and format all code (Biome + Rslint)
 - `pnpm run analyze` - Analyze library build artifacts
 - `pnpm run test` - Run tests at once
@@ -119,6 +130,14 @@ changes.
 
 For command details and version-specific generation rules, read
 `.agents/skills/rsdoctor-analysis/SKILL.md` and its references.
+
+### Rspress Documentation
+
+The documentation site is configured with `define.doc()` in `rstack.config.ts`.
+Its source root is `src-docs/` and its generated output is `docs/`; keep these
+paths aligned with the Rspress config and the package scripts. When updating the
+documentation site, follow `.agents/skills/rspress-docs-generator/SKILL.md` and
+validate changes with `pnpm run build:docs`.
 
 ### Directory Structure & File Organization
 

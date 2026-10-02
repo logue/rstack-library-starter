@@ -16,6 +16,6 @@
       "@/*": ["./src/*"]
     },
     "resolveJsonModule": true,
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo"
+    "tsBuildInfoFile": "./.rstack/.tmp/tsconfig.node.tsbuildinfo"
   }
 }

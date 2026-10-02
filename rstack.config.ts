@@ -55,9 +55,6 @@ const createBuildDefines = () => ({
   'import.meta.env.BUILD_DATE': JSON.stringify(buildDate)
 });
 
-const createRsdoctorPlugins = () =>
-  process.env.RSDOCTOR === 'true' ? [new RsdoctorRspackPlugin()] : [];
-
 const IGNORE_PATTERNS = [
   // AI agents skill docs.
   '**/.agents/**',
@@ -146,7 +143,14 @@ define.lib({
   },
   tools: {
     rspack: {
-      plugins: createRsdoctorPlugins()
+      plugins: [
+        // Only register the plugin when RSDOCTOR is true, as the plugin will increase the build time.
+        process.env.RSDOCTOR &&
+          new RsdoctorRspackPlugin({
+            // plugin options
+            // @see {@link https://rsdoctor.rs/guide/start/features | Rsdoctor Docs}
+          })
+      ].filter(Boolean)
     }
   }
 });
@@ -174,11 +178,6 @@ define.app({
     },
     include: ['./src'],
     tsconfigPath: './tsconfig.rsbuild.json'
-  },
-  tools: {
-    rspack: {
-      plugins: createRsdoctorPlugins()
-    }
   }
 });
 
@@ -187,13 +186,28 @@ define.app({
  * To use this, you will need to install @rspress/core separately.
  *
  * @see {@link https://rstack.rs/guide/cli/doc | Doc Config}
+ * @see {@link https://rspress.rs/api/ | Rspress Config}
  */
-/*
 define.doc({
-  root: 'docs',
-  title: 'My Site',
+  // Directory settings
+  root: 'src-docs',
+  outDir: 'docs',
+  base: `/${pkg.name}/`,
+  // Site information settings
+  title: pkg.name,
+  description: pkg.description,
+  lang: 'en',
+  locales: [
+    {
+      lang: 'en',
+      label: 'English',
+      title: 'My Site',
+      description: 'My site description'
+    }
+  ],
+  // generate llms.txt
+  llms: true
 });
-*/
 
 /**
  * Rstest Config
@@ -395,4 +409,13 @@ define.fmt({
   // see https://rstack.rs/guide/formatting
   ignorePatterns: IGNORE_PATTERNS,
   sortPackageJson: true
+});
+
+/**
+ * Git hooks
+ * @see {@link https://rstack.rs/guide/cli/hooks | Git Hooks}
+ */
+define.staged({
+  '*.{js,jsx,ts,tsx,mjs,cjs,mts,cts}': ['rs lint --fix', 'rs fmt'],
+  '*.{json,md,mdx,css,scss,less,html,yml,yaml}': 'rs fmt'
 });
