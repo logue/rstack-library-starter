@@ -22,16 +22,28 @@ Build the library:
 pnpm run build
 ```
 
-Build for the web
+Build for the web demo.
 
 ```bash
 pnpm run build:demo
+```
+
+Buidl for the documentation site.
+
+```bash
+pnpm run build:docs
 ```
 
 Build the library in watch mode:
 
 ```bash
 pnpm run dev
+```
+
+Build the documentation in watch mode:
+
+```bash
+pnpm run dev:docs
 ```
 
 Run tests:
@@ -58,13 +70,9 @@ Separate tsconfig files for different purposes:
 
 - `tsconfig.node.json` - Bundler
 - `tsconfig.rslib.json` - Library bundling
-- `tsconfig.rsbuild.json` - Demo/documentation site
+- `tsconfig.rsbuild.json` - Demo
+- `tsconfig.rspress.json` - documentation site
 - `tsconfig.rstest.json` - Testing
-
-Performance note:
-exclude patterns should include nested directories and hidden files
-for optimal type-checking performance:
-<https://github.com/microsoft/TypeScript/wiki/Performance#misconfigured-include-and-exclude>
 
 ## Optional: 🪝 Git Hooks (Recommended for Teams)
 
@@ -89,6 +97,7 @@ When using this template, follow the checklist to update your info properly.
 - [ ] Change the author name in LICENSE
 - [ ] Update package name and metadata in `package.json`
 - [ ] Change `umdName` in `rstack.config.ts`
+- [ ] When outputting a documentation site, if the package name in `rstack.config.ts` differs from the repository name, modify the `base` value in `define.doc` as needed. (By default, the base path is the package name with the `@` namespace removed.)
 - [ ] **Set `"private": false`** (currently `true` as a safety measure)
 - [ ] Review and adapt `AGENTS.md` for your project conventions
 - [ ] Clean up the READMEs

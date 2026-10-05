@@ -149,6 +149,10 @@ define.lib({
           new RsdoctorRspackPlugin({
             // plugin options
             // @see {@link https://rsdoctor.rs/guide/start/features | Rsdoctor Docs}
+            output: {
+              // Do not output report in dist dir.
+              reportDir: '.rstack/'
+            }
           })
       ].filter(Boolean)
     }
@@ -192,7 +196,8 @@ define.doc({
   // Directory settings
   root: 'src-docs',
   outDir: 'docs',
-  base: `/${pkg.name}/`,
+  // If the package name and repository name are different, correct them as needed.
+  base: `/${pkg.name.slice(pkg.name.lastIndexOf('/') + 1)}/`,
   // Site information settings
   title: pkg.name,
   description: pkg.description,
