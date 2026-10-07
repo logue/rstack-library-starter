@@ -8,13 +8,13 @@ This project uses Rstack CLI as its JS toolchain:
 
 ## Setup & Overview
 
-- **Build tools**: Rslib (library), Rsbuild (demo site), Rspress (documentation)
+- **Build tools**: Rstack (rslib for library, rsbuild for demo, rspress for documantation site)
 - **Linter**: Rslint and Prettir
 - **Testing**: Rstest
 - **Language**: TypeScript 7
 - **Package manager**: pnpm (do not use npm or yarn)
 
-**Last updated**: 2026-10-02
+**Last updated**: 2026-10-07
 **Verified with**: `package.json` in this repository
 
 ### Tool Versions
@@ -24,7 +24,7 @@ See `package.json` for authoritative dependency versions.
 This guide assumes:
 
 - TypeScript 7.0.2 or later
-- rstack 0.8.0 or later
+- rstack 0.8.1 or later
 
 **If you encounter version-related issues, check `package.json` directly—it is the source of truth.**
 
@@ -38,7 +38,7 @@ This guide assumes:
 Recommended extensions are listed in `.vscode/extensions.json`.
 Formatter and linter are configured in `.vscode/settings.json`:
 
-- Default formatter: **Biome**
+- Default formatter: **Prettier**
 - Format on save: enabled
 - Auto-fix on save: Rslint
 
@@ -63,7 +63,7 @@ demo application, tests, and linting:
   - Output: `docs/`
 - **Rstest** - Runs the test suite
   - Command: `pnpm run test`
-- **Rslint and Biome** - Lints and formats the project
+- **Rslint and Prettier** - Lints and formats the project
   - Command: `pnpm run lint`
 
 All tool configuration is defined in `rstack.config.ts` through
@@ -104,11 +104,14 @@ Use Rsdoctor analysis internally to support evidence-based bundle optimization.
 Keep this workflow read-only unless the user explicitly asks for setup or code
 changes.
 
-- First locate a real `rsdoctor-data.json` in `dist/`, `output/`, `static/`,
-  `.rsdoctor/`, or via one bounded `rg --files` search excluding
-  `node_modules` and `.git`.
-- Do not run `rsdoctor-agent` when the data file is missing. Ask for its path,
-  or generate it with `pnpm run analyze` when generation is required.
+- First check a user-provided or known path for a real `rsdoctor-data.json`. If
+  no path is available and a report needs to be generated, run
+  `pnpm run analyze` before searching. Since `.rstack/` is gitignored, use
+  `rg --hidden --no-ignore --files .rstack` to locate the generated file;
+  ordinary `rg --files` will omit it.
+- Do not run `rsdoctor-agent` until the data file exists. If it is missing, ask
+  for its path or generate it with `pnpm run analyze` when generation is
+  required.
 - `rsdoctor` from `@rsdoctor/cli` is only the browser viewer. It is not a
   substitute for the data-fetching `rsdoctor-agent` from
   `@rsdoctor/agent-cli`.
@@ -117,7 +120,7 @@ changes.
   For plugin versions below 1.5.11, configure brief JSON output instead of
   using `RSDOCTOR_OUTPUT=json`.
 - Validate that the generated data is valid JSON before analysis. A
-  `.rsdoctor/manifest.json` file alone is only a viewer index.
+  `.rstack/.rsdoctor/manifest.json` file alone is only a viewer index.
 - Fetch only the default evidence first: build cost, top assets, top packages,
   duplicate packages, cross-chunk duplication, and retained tree-shaking
   modules. Bound output with filters, pagination, and limits.
