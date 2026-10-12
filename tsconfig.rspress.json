@@ -1,13 +1,12 @@
 {
   "extends": "@tsconfig/node-lts/tsconfig.json",
-  "include": ["env.d.ts", "src-docs", "theme"],
+  "include": ["env.d.ts", "src-docs/**/*", "theme/**/*"],
   "exclude": ["**/node_modules", "**/.*/"],
   "compilerOptions": {
     "lib": ["DOM", "ES2023"],
     "jsx": "react-jsx",
     "target": "ES2023",
     "noEmit": true,
-    "skipLibCheck": true,
     "useDefineForClassFields": true,
 
     /* modules */

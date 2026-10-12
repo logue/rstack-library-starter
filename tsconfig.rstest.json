@@ -1,6 +1,6 @@
 {
   "extends": "./tsconfig.rslib.json",
-  "include": ["src/**/__tests__/*", "env.d.ts"],
+  "include": ["env.d.ts", "src/**/__tests__/*"],
   "exclude": ["**/node_modules", "**/.*/"],
   "compilerOptions": {
     "noImplicitAny": false,

@@ -6,6 +6,7 @@ import { readFileSync } from 'node:fs';
 
 import markdownPlugin from '@eslint/markdown';
 import prettierPlugin from 'eslint-config-prettier';
+import { configs as yamlConfigs } from 'eslint-plugin-yml';
 
 /**
  * The UMD name is used for the global variable name when the library
@@ -83,11 +84,11 @@ const IGNORE_PATTERNS = [
 ];
 
 const APP_FILES = [
-  '**/*.{ts,mts,tsx,js,mjs,jsx,json,jsonc,yml,yaml,mdx,vue,astro,svelte}'
+  '**/*.{ts,mts,tsx,js,mjs,jsx,json,jsonc,mdx,vue,astro,svelte}'
 ];
 const TEST_FILES = ['**/*.{test,spec}.{ts,mts,tsx,js,mjs,jsx}'];
 const DOC_FILES = ['**/*.{md,mdx}'];
-
+const YAML_FILES = ['**/*.{yml,yaml}'];
 /**
  * Rslib Config
  * @see {@link https://rslib.rs/config/ | Rslib Config}
@@ -252,7 +253,13 @@ define.lint(
           ...globals.nodeBuiltin
         },
         parserOptions: {
-          project: ['./tsconfig.json']
+          project: [
+            './tsconfig.node.json',
+            './tsconfig.rsbuild.json',
+            './tsconfig.rslib.json',
+            './tsconfig.rspress.json',
+            './tsconfig.rstest.json'
+          ]
         }
       }
     },
@@ -261,6 +268,7 @@ define.lint(
     js.configs.recommended,
     ts.configs.strictTypeChecked,
     ts.configs.stylisticTypeChecked,
+    importPlugin.configs.recommended,
     promisePlugin.configs.recommended,
     unicornPlugin.configs.recommended,
     // nodePlugin.configs.recommended,
@@ -269,11 +277,9 @@ define.lint(
     jsxA11yPlugin.configs.recommended,
 
     {
-      ...importPlugin.configs.recommended,
       files: APP_FILES,
       plugins: ['@typescript-eslint', 'import', 'promise', 'unicorn'],
       rules: {
-        ...importPlugin.configs.recommended.rules,
         '@typescript-eslint/array-type': [
           'error',
           {
@@ -350,27 +356,15 @@ define.lint(
       },
       settings: {
         'import/resolver': {
-          'eslint-import-resolver-custom-alias': {
-            alias: {
-              '@': './src',
-              '~': './node_modules'
-            },
-            extensions: [
-              '.js',
-              '.ts',
-              '.json',
-              '.jsonc',
-              '.yml',
-              '.yaml',
-              '.jsx',
-              '.tsx',
-              '.vue',
-              '.svelte',
-              '.astro'
+          typescript: {
+            project: [
+              './tsconfig.node.json',
+              './tsconfig.rsbuild.json',
+              './tsconfig.rspress.json',
+              './tsconfig.rslib.json',
+              './tsconfig.rstest.json'
             ]
-          },
-          node: true,
-          typescript: true
+          }
         }
       }
     },
@@ -386,11 +380,16 @@ define.lint(
       }
     },
 
-    {
-      files: DOC_FILES,
-      plugins: ['markdown'],
-      ...markdownPlugin.configs.recommended
-    },
+    ...markdownPlugin.configs.recommended.map(config => ({
+      ...config,
+      files: DOC_FILES
+    })),
+
+    ...yamlConfigs['flat/prettier'].map(config => ({
+      ...config,
+      files: YAML_FILES,
+      plugins: ['yml']
+    })),
     prettierPlugin.rules
   ]
 );

@@ -1,7 +1,7 @@
 {
   "extends": "./tsconfig.rslib.json",
   "include": ["env.d.ts", "src/**/*", "src-demo/**/*"],
-  "exclude": ["**/node_modules", "src/**/__tests__/*"],
+  "exclude": ["**/node_modules", "**/.*/", "src/**/__tests__/*"],
   "compilerOptions": {
     "lib": ["DOM"],
     "outDir": "demo",

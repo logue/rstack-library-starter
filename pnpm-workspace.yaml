@@ -1,7 +1,18 @@
+# Do not enforce minimum release age for dependencies.
+# Version selection is delegated to package.json constraints.
+minimumReleaseAge: 0
+
+allowBuilds:
+  unrs-resolver: true
+
+overrides:
+  katex: '>=0.19.0'
+
 # If you use rust, comment out bellow:
 # cargo:
 #  enabled: true
 
-# Do not enforce minimum release age for dependencies.
-# Version selection is delegated to package.json constraints.
-minimumReleaseAge: 0
+# Agent skills
+skills:
+  dirs:
+    - .agents/skills
