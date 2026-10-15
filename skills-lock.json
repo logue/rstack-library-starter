@@ -11,7 +11,7 @@
       "source": "rstackjs/agent-skills",
       "sourceType": "github",
       "skillPath": "skills/rsdoctor-analysis/SKILL.md",
-      "computedHash": "1aa36522b3ef319f9348fe0b7d7863c8b2d0d2ee76a1f784f895d239cb02ebd2"
+      "computedHash": "9a0e5e0023148c482c1f75cba2dfd8f24a484f32da48568670ca40d7173d4845"
     },
     "rslib-best-practices": {
       "source": "rstackjs/agent-skills",

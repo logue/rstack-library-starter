@@ -58,37 +58,40 @@ const createBuildDefines = () => ({
 
 const IGNORE_PATTERNS = [
   // AI agents skill docs.
+  '**/.agent/**',
   '**/.agents/**',
+  '**/.claude/**',
+  '**/.cursor/**',
+  '**/.windsurf/**',
   // Build intermediate artifacts.
   '**/.cache/**',
   '**/.data/**',
   '**/.mf/**',
   '**/.nitro/**',
   '**/.nuxt/**',
-  '**/.output/**',
+  '**/.pnpm/**',
   '**/.rstack/**',
   // Test coverage reports.
   '**/coverage/**',
-  '**/reports',
-  '**/test-results',
+  '**/e2e/**',
+  '**/playwright-report/**',
+  '**/reports/**',
+  '**/test-results/**',
   // Build artifacts.
   '**/demo/**',
-  '**/dist-ssr/**',
   '**/dist/**',
   '**/docs/**',
   '**/storybook-static/**',
-  // Grit (Biome Rules) source artifacts.
-  '**/grit/**',
+  '**/target/**',
   // Node modules.
   '**/node_modules/**'
 ];
 
-const APP_FILES = [
-  '**/*.{ts,mts,tsx,js,mjs,jsx,json,jsonc,mdx,vue,astro,svelte}'
-];
+const APP_FILES = ['**/*.{ts,mts,tsx,js,mjs,jsx,json,jsonc,vue,astro,svelte}'];
 const TEST_FILES = ['**/*.{test,spec}.{ts,mts,tsx,js,mjs,jsx}'];
 const DOC_FILES = ['**/*.{md,mdx}'];
 const YAML_FILES = ['**/*.{yml,yaml}'];
+
 /**
  * Rslib Config
  * @see {@link https://rslib.rs/config/ | Rslib Config}
@@ -382,6 +385,7 @@ define.lint(
 
     ...markdownPlugin.configs.recommended.map(config => ({
       ...config,
+      language: 'markdown/gfm',
       files: DOC_FILES
     })),
 
