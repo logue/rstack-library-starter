@@ -83,7 +83,7 @@ const IGNORE_PATTERNS = [
   '**/docs/**',
   '**/storybook-static/**',
   '**/target/**',
-  // Node modules.
+  // Node modules
   '**/node_modules/**'
 ];
 
@@ -205,6 +205,7 @@ define.doc({
   // Site information settings
   title: pkg.name,
   description: pkg.description,
+  head: [['meta', { name: 'author', content: pkg.author.name }]],
   lang: 'en',
   locales: [
     {

@@ -74,10 +74,6 @@ Separate tsconfig files for different purposes:
 - `tsconfig.rspress.json` - documentation site
 - `tsconfig.rstest.json` - Testing
 
-## Optional: 🪝 Git Hooks (Recommended for Teams)
-
-Use rstack hooks: <https://rstack.rs/guide/cli/hooks>
-
 ## 🔒️ Safety Measures
 
 This template has `"private": true` in `package.json` as a default safety measure.

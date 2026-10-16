@@ -5,11 +5,7 @@
   "compilerOptions": {
     "lib": ["DOM"],
     "outDir": "demo",
-    "paths": {
-      "@/*": ["./src/*"]
-    },
     "rootDir": "./",
-    "tsBuildInfoFile": "./.rstack/tsconfig.rsbuild.tsbuildinfo",
-    "types": ["rstack/types", "node"]
+    "tsBuildInfoFile": "./.rstack/tsconfig.rsbuild.tsbuildinfo"
   }
 }

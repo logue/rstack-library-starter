@@ -4,7 +4,6 @@ minimumReleaseAge: 0
 
 allowBuilds:
   unrs-resolver: true
-  '@rstackjs/agent-skills@https://codeload.github.com/rstackjs/agent-skills/tar.gz/9699f42f36767fa19c5fabac0c7db79977b2f4c3': true
 
 overrides:
   katex: '>=0.19.0'

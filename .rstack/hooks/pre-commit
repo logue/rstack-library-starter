@@ -1,1 +1,3 @@
-rs staged
+#!/bin/sh
+
+npx rs staged
