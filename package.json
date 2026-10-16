@@ -48,7 +48,7 @@
     "test": "rs test",
     "test:watch": "rs test --watch",
     "clean": "rimraf demo dist docs",
-    "clean:hard": "rimraf .rstack demo dist docs node_modules/.tmp node_modules/.cache",
+    "clean:hard": "rimraf .rstack/cache .rstack/.rsdoctor demo dist docs node_modules/.tmp node_modules/.cache",
     "build": "rs lib",
     "build:demo": "rs build",
     "build:docs": "rs doc build",
