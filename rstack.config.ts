@@ -1,5 +1,5 @@
 import { pluginTypeCheck } from '@rsbuild/plugin-type-check';
-import { RsdoctorRspackPlugin } from '@rsdoctor/rspack-plugin';
+import { RsdoctorRspackPlugin } from '@rsdoctor/core';
 import { define } from 'rstack';
 
 import { readFileSync } from 'node:fs';
@@ -70,6 +70,7 @@ const IGNORE_PATTERNS = [
   '**/.nitro/**',
   '**/.nuxt/**',
   '**/.pnpm/**',
+  '**/.rsdoctor/**',
   '**/.rstack/**',
   // Test coverage reports.
   '**/coverage/**',
