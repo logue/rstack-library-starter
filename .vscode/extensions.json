@@ -1,4 +1,13 @@
 {
-  "recommendations": ["rstack.rstack", "esbenp.prettier-vscode"],
-  "unwantedRecommendations": ["rstack.rslint", "rstack.rstest"]
+  "recommendations": [
+    "EditorConfig.EditorConfig",
+    "rstack.rstack",
+    "esbenp.prettier-vscode"
+  ],
+  "unwantedRecommendations": [
+    "biomejs.biome",
+    "rstack.rslint",
+    "rstack.rstest",
+    "dbaeumer.vscode-eslint"
+  ]
 }
