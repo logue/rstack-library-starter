@@ -17,9 +17,9 @@ node_modules/
 .nuxt/
 .output/
 .pnpm/crates/
-.rsdoctor/
 .rstack/
-!.rstack/hooks/*
+!.rstack/hooks/
+.vitest/
 
 # Test Report
 coverage/
@@ -29,11 +29,11 @@ reports/
 test-results/
 
 # Production / Build output
-target/
 dist/
 docs/
-demo/
+src-docs/public/demo/
 storybook-static/
+target/
 
 # Environment
 .env

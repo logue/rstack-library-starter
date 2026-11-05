@@ -1,4 +1,3 @@
-/* rslint-disable @typescript-eslint/no-explicit-any */
 declare module '*.css';
 // declare module '*.scss';
 
@@ -17,7 +16,6 @@ interface ImportMeta {
 /*
 declare module '*.vue' {
   import type { DefineComponent } from 'vue';
-  // rslint-disable-next-line @typescript-eslint/no-empty-object-type, @typescript-eslint/ban-types
   const component: DefineComponent<
     Record<string, never>,
     Record<string, never>,

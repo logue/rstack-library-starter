@@ -10,6 +10,11 @@
     "activeMatch": "/api/"
   },
   {
+    "text": "Playground",
+    "link": "/playground",
+    "activeMatch": "/playground"
+  },
+  {
     "text": "Document",
     "link": "https://rspress.rs/"
   }
