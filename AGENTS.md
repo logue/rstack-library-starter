@@ -9,12 +9,12 @@ This project uses Rstack CLI as its JS toolchain:
 ## Setup & Overview
 
 - **Build tools**: Rstack (rslib for library, rsbuild for demo, rspress for documantation site)
-- **Linter**: Rslint and Prettir
+- **Linter**: Rslint and Prettier
 - **Testing**: Rstest
 - **Language**: TypeScript 7
 - **Package manager**: pnpm (do not use npm or yarn)
 
-**Last updated**: 2026-10-07
+**Last updated**: 2026-11-05
 **Verified with**: `package.json` in this repository
 
 ### Tool Versions
@@ -24,7 +24,7 @@ See `package.json` for authoritative dependency versions.
 This guide assumes:
 
 - TypeScript 7.0.2 or later
-- rstack 0.8.1 or later
+- rstack 0.9.0 or later
 
 **If you encounter version-related issues, check `package.json` directly—it is the source of truth.**
 
@@ -49,14 +49,14 @@ When you open the project in VS Code, you'll be prompted to install recommended 
 ### Project Structure
 
 This project uses the Rstack CLI as a unified interface for the library,
-demo application, tests, and linting:
+demo, tests, and linting:
 
 - **Rslib** - Builds the library for distribution (ESM and UMD)
   - Command: `pnpm run build`
   - Output: `dist/` (published to npm)
-- **Rsbuild** - Builds the demo application
+- **Rsbuild** - Builds the demo (Playground).
   - Command: `pnpm run build:demo`
-  - Output: `demo/` (for manual testing and validation)
+  - Output: `src-docs/public/demo/` (served by the documentation site and embedded on its Playground page)
 - **Rspress** - Builds the documentation site
   - Source: `src-docs/`
   - Command: `pnpm run build:docs`
@@ -67,7 +67,7 @@ demo application, tests, and linting:
   - Command: `pnpm run lint`
 
 All tool configuration is defined in `rstack.config.ts` through
-`define.app`, `define.doc`, `define.lib`, `define.test`, and `define.lint`.
+`define.app`, `define.doc`, `define.lib`, `define.test` ,`define.lint`, and `define.fmt`.
 TypeScript compiler options remain separated by use case:
 
 - `tsconfig.rslib.json` - Library source and declaration generation
@@ -79,7 +79,7 @@ TypeScript compiler options remain separated by use case:
 
 - `pnpm run dev` - Start the demo development server with hot reload
 - `pnpm run build` - Build the library for production
-- `pnpm run build:demo` - Build the demo application
+- `pnpm run build:demo` - Build the demo application into `src-docs/public/demo/` for the documentation site's Playground page
 - `pnpm run preview` - Preview the built demo application
 - `pnpm run dev:docs` - Start the Rspress documentation server
 - `pnpm run build:docs` - Build the documentation into `docs/`
@@ -103,6 +103,15 @@ TypeScript compiler options remain separated by use case:
 Use Rsdoctor analysis internally to support evidence-based bundle optimization.
 Keep this workflow read-only unless the user explicitly asks for setup or code
 changes.
+
+The `rg` command (ripgrep) used below is a standalone tool and is not installed
+by `pnpm install`. Install it with your OS package manager if it is unavailable:
+
+- macOS (Homebrew): `brew install ripgrep`
+- Debian/Ubuntu: `sudo apt install ripgrep`
+- Windows (WinGet): `winget install BurntSushi.ripgrep.MSVC`
+
+Verify the installation with `rg --version`.
 
 - First check a user-provided or known path for a real `rsdoctor-data.json`. If
   no path is available and a report needs to be generated, run

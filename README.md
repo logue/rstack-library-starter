@@ -2,7 +2,7 @@
 
 [![TypeScript](https://img.shields.io/badge/TypeScript-7-%230074c1.svg)](http://www.typescriptlang.org/)
 [![pnpm](https://img.shields.io/badge/pnpm-12-pink.svg)](https://pnpm.io/)
-[![Rstack](https://img.shields.io/badge/rsbuild-0.8.0-orange.svg)](https://rstack.rs/)
+[![Rstack](https://img.shields.io/badge/rsbuild-0.9.0-orange.svg)](https://rstack.rs/)
 [![X Follow](https://img.shields.io/twitter/follow/logue256?style=plastic)](https://x.com/logue256)
 [![GitHub Sponsors](https://img.shields.io/github/sponsors/logue?label=Sponsor&logo=github&color=ea4aaa)](https://github.com/sponsors/logue)
 
@@ -22,17 +22,19 @@ Build the library:
 pnpm run build
 ```
 
-Build for the web demo.
+Build for the web demo. The output is written to `src-docs/public/demo/` and displayed on the documentation site's Playground page.
 
 ```bash
 pnpm run build:demo
 ```
 
-Buidl for the documentation site.
+Buid for the documentation site.
 
 ```bash
 pnpm run build:docs
 ```
+
+This command builds the demo before building the documentation site.
 
 Build the library in watch mode:
 
