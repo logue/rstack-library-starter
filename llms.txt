@@ -1,0 +1,22 @@
+# rstack-library-starter
+
+> Rstack Library Starter Template
+
+## Guide
+
+- [Introduction](/rstack-library-starter/guide/start/introduction.md): Introduction to Rspress features, including build performance, AI-native output, MDX, and extensibility.
+- [Getting started](/rstack-library-starter/guide/start/getting-started.md): Set up an Rspress project, run local development, build production output, and choose next docs topics.
+- [MDX & React components](/rstack-library-starter/guide/use-mdx/components.md): Use Markdown, MDX, React components, and Rspress built-in components in documentation pages.
+- [Code blocks](/rstack-library-starter/guide/use-mdx/code-blocks/index.md): Configure Rspress code blocks with Shiki syntax highlighting and automatic language handling.
+- [Title](/rstack-library-starter/guide/use-mdx/code-blocks/title.md): Add file titles to Rspress code blocks using Markdown code fence metadata.
+- [Meta](/rstack-library-starter/guide/use-mdx/code-blocks/meta.md): Add metadata such as line numbers, wrapping, and titles to Rspress code blocks.
+- [Container](/rstack-library-starter/guide/use-mdx/container.md): Create Rspress custom containers for tips, info, warnings, dangers, details, and custom titles.
+
+## API
+
+- [API Overview](/rstack-library-starter/api/index.md): Overview page for the Rspress starter API section and available reference pages.
+- [Commands](/rstack-library-starter/api/commands.md): Command reference for Rspress development, production build, and local preview scripts.
+
+## Playground
+
+- [Demo](/rstack-library-starter/playground.md): Live demo.

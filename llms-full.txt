@@ -1,0 +1,293 @@
+---
+url: /rstack-library-starter/guide/start/introduction.md
+---
+
+> For AI agents: the complete documentation index is available at /rstack-library-starter/llms.txt, the full documentation bundle is available at /rstack-library-starter/llms-full.txt.
+
+# Introduction
+
+Rspress is a static site generator based on [Rsbuild](https://rsbuild.rs/), rendered with the React framework. It comes with a default documentation theme, and you can quickly build a documentation site with Rspress.
+
+## Why Rspress
+
+- **Build Performance**. The core compilation module is based on the Rust front-end toolchain, providing millisecond-level startup and a more ultimate development experience.
+- **AI-native**. Technical documentation not only serves human readers but can also be better understood and utilized by AI through SSG-MD.
+- **MDX Support**. MDX is a powerful way to write content, allowing you to use React components in Markdown.
+- **Basic Capabilities**. Including full-text search, internationalization, multi-version support, component library documentation, etc.
+- **Extensibility**. Provides a built-in plugin system, supports extending Rspress through plugin API.
+
+## Try Rspress
+
+Go to [Getting Started](/rstack-library-starter/guide/start/getting-started.md) to learn how to use Rspress to build a documentation site.
+
+
+
+---
+url: /rstack-library-starter/guide/start/getting-started.md
+---
+
+> For AI agents: the complete documentation index is available at /rstack-library-starter/llms.txt, the full documentation bundle is available at /rstack-library-starter/llms-full.txt.
+
+# Getting started
+
+## Project structure
+
+- `src-docs/` — The documentation source directory, configured via `root` in `rstack.config.ts`.
+- `src-docs/_nav.json` — The navigation bar configuration.
+- `src-docs/guide/_meta.json` — The sidebar configuration for the guide section.
+- `src-docs/public/` — Static assets directory.
+- `theme/` — Optional custom theme directory, generated when you choose the custom theme scaffold.
+- `rstack.config.ts` — The Rspress configuration file.
+
+## Development
+
+Start the local development server:
+
+```bash
+pnpm run dev:docs
+```
+
+:::tip
+
+You can specify the port number or host with `--port` or `--host`, such as `pnpm run dev:docs -- --port 8080 --host 0.0.0.0`.
+
+:::
+
+## Production build
+
+Build the site for production:
+
+```bash
+pnpm run build:docs
+```
+
+The generated site is written to `docs/`, as configured in `rstack.config.ts`.
+
+## Preview
+
+Preview the production build locally:
+
+```bash
+pnpm run preview:docs
+```
+
+## Next steps
+
+- Learn how to use [MDX & React Components](/rstack-library-starter/guide/use-mdx/components.md) in your docs.
+- Learn about [Code Blocks](/rstack-library-starter/guide/use-mdx/code-blocks/index.md) syntax highlighting and line highlighting.
+- Learn about [Custom Containers](/rstack-library-starter/guide/use-mdx/container.md) for tips, warnings, and more.
+- Explore the full [Rspress documentation](https://rspress.rs/) for advanced features.
+
+
+
+---
+url: /rstack-library-starter/guide/use-mdx/components.md
+---
+
+> For AI agents: the complete documentation index is available at /rstack-library-starter/llms.txt, the full documentation bundle is available at /rstack-library-starter/llms-full.txt.
+
+# MDX & React components
+
+Rspress supports not only Markdown but also [MDX](https://mdxjs.com/), a powerful way to develop content.
+
+## Markdown
+
+MDX is a superset of Markdown, which means you can write Markdown files as usual. For example:
+
+```md
+# Hello world
+```
+
+## Use components
+
+When you want to use React components in Markdown files, you should name your files with `.mdx` extension.
+
+```mdx
+// docs/index.mdx
+import { CustomComponent } from './custom';
+
+# Hello world
+
+<CustomComponent />
+```
+
+## Use Rspress built-in components
+
+
+**foo.js**
+
+```js
+console.log('foo');
+```
+
+
+**bar.js**
+
+```js
+console.log('bar');
+```
+
+
+
+
+---
+url: /rstack-library-starter/guide/use-mdx/code-blocks/index.md
+---
+
+> For AI agents: the complete documentation index is available at /rstack-library-starter/llms.txt, the full documentation bundle is available at /rstack-library-starter/llms-full.txt.
+
+# Code blocks
+
+Rspress uses [Shiki](https://shiki.style) for syntax highlighting at compile time, which means better runtime performance.
+
+When using code blocks in multiple languages, the corresponding language is automatically detected at compile time, and the runtime bundle size does not increase. For supported programming languages, refer to the [Shiki supported languages list](https://shiki.style/languages).
+
+```js
+console.log('Hello World');
+```
+
+
+
+---
+url: /rstack-library-starter/guide/use-mdx/code-blocks/title.md
+---
+
+> For AI agents: the complete documentation index is available at /rstack-library-starter/llms.txt, the full documentation bundle is available at /rstack-library-starter/llms-full.txt.
+
+# Title
+
+```js title="foo.js"
+console.log('Hello World');
+```
+
+
+
+---
+url: /rstack-library-starter/guide/use-mdx/code-blocks/meta.md
+---
+
+> For AI agents: the complete documentation index is available at /rstack-library-starter/llms.txt, the full documentation bundle is available at /rstack-library-starter/llms-full.txt.
+
+# Meta
+
+Besides the title, we also have some other meta attributes.
+
+```ts lineNumbers wrapCode title="example.ts"
+const longLine = 'This code block has line numbers, code wrapping, and a title';
+```
+
+
+
+---
+url: /rstack-library-starter/guide/use-mdx/container.md
+---
+
+> For AI agents: the complete documentation index is available at /rstack-library-starter/llms.txt, the full documentation bundle is available at /rstack-library-starter/llms-full.txt.
+
+# Container
+
+You can use the `:::` syntax to create custom containers and support custom titles.
+
+## Examples
+
+:::tip
+This is a `block` of type `tip`
+:::
+
+:::info
+This is a `block` of type `info`
+:::
+
+:::warning
+This is a `block` of type `warning`
+:::
+
+:::danger
+This is a `block` of type `danger`
+:::
+
+::: details
+This is a `block` of type `details`
+:::
+
+:::tip Custom Title
+This is a `block` of `Custom Title`
+:::
+
+:::tip\{title="Custom Title"}
+This is a `block` of `Custom Title`
+:::
+
+
+
+---
+url: /rstack-library-starter/api/index.md
+---
+
+> For AI agents: the complete documentation index is available at /rstack-library-starter/llms.txt, the full documentation bundle is available at /rstack-library-starter/llms-full.txt.
+
+# API Overview
+
+## Commands
+
+### [Commands](/rstack-library-starter/api/commands.md)
+
+- [dev](/rstack-library-starter/api/commands.md#dev)
+- [build](/rstack-library-starter/api/commands.md#build)
+- [preview](/rstack-library-starter/api/commands.md#preview)
+
+
+
+---
+url: /rstack-library-starter/api/commands.md
+---
+
+> For AI agents: the complete documentation index is available at /rstack-library-starter/llms.txt, the full documentation bundle is available at /rstack-library-starter/llms-full.txt.
+
+# Commands
+
+## dev
+
+## build
+
+## preview
+
+
+
+---
+url: /rstack-library-starter/playground.md
+---
+
+> For AI agents: the complete documentation index is available at /rstack-library-starter/llms.txt, the full documentation bundle is available at /rstack-library-starter/llms-full.txt.
+
+# Demo
+
+This section displays the demo created with `pnpm build:demo` embedded in an iframe. Please rewrite this text as needed.
+
+
+
+
+---
+url: /rstack-library-starter/index.md
+---
+
+> For AI agents: the complete documentation index is available at /rstack-library-starter/llms.txt, the full documentation bundle is available at /rstack-library-starter/llms-full.txt.
+
+# My Site
+
+A cool website!
+
+> This is the tagline
+
+[Quick Start](/guide/start/introduction) | [GitHub](https://github.com/web-infra-dev/rspress)
+
+## Features
+
+- [🏃🏻‍♀️ **Blazing fast build speed**](/guide/start/introduction): The core compilation module is based on the Rust front-end toolchain, providing a more ultimate development experience.
+- [📦 **Support for MDX content writing**](/guide/use-mdx/components): MDX is a powerful way to write content, allowing you to use React components in Markdown.
+- [🎨 **Built-in full-text search**](https://rspress.rs/guide/advanced/custom-search): Automatically generates a full-text search index for you during construction, providing out-of-the-box full-text search capabilities.
+- [🤖 **AI-friendly**](https://rspress.rs/guide/basic/ssg-md): Generate llms.txt and Markdown files compliant with the llms.txt specification through SSG-MD, making it easier for large language models to understand and use your documentation.
+- [🌈 **Static site generation**](https://rspress.rs/guide/basic/ssg): In production, it automatically builds into static HTML files, which can be easily deployed anywhere.
+- [🔥 **Providing multiple custom capabilities**](https://rspress.rs/guide/basic/custom-theme): Through its extension mechanism, you can easily extend theme UI and build process.
+
+

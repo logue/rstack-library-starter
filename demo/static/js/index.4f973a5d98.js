@@ -1,0 +1,1 @@
+(()=>{"use strict";let t=document.getElementById("input"),e=document.getElementById("output");t.addEventListener("input",()=>{let u;e.value=((u=Number(t.value))*u).toString()})})();
