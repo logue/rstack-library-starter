@@ -31,6 +31,12 @@
       "skillPath": "skills/rspress-docs-generator/SKILL.md",
       "computedHash": "ac15a47048425a68fc671cf3754eef2b857e41db08354d09deb98f3bed1d6a1d"
     },
+    "rstack-cli-docs": {
+      "source": "rstackjs/rstack-cli",
+      "sourceType": "github",
+      "skillPath": ".agents/skills/rstack-cli-docs/SKILL.md",
+      "computedHash": "8b5451af88d29195dc2f257543013ad66aa14a7791e401ab4cffdb11941cf27a"
+    },
     "rstest-best-practices": {
       "source": "rstackjs/agent-skills",
       "sourceType": "github",

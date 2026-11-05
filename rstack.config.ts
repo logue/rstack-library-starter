@@ -303,10 +303,7 @@ define.lint(
 
         // Keep project lint behavior aligned with the previous baseline.
         '@typescript-eslint/ban-ts-comment': 'off',
-        '@typescript-eslint/consistent-generic-constructors': [
-          'error',
-          'type-annotation'
-        ],
+        '@typescript-eslint/consistent-generic-constructors': ['error', 'type-annotation'],
         '@typescript-eslint/explicit-function-return-type': 'off',
 
         // Ignore intentionally unused identifiers with underscore prefix.
@@ -339,15 +336,7 @@ define.lint(
             alphabetize: {
               order: 'asc'
             },
-            groups: [
-              'builtin',
-              'external',
-              'parent',
-              'sibling',
-              'index',
-              'object',
-              'type'
-            ],
+            groups: ['builtin', 'external', 'parent', 'sibling', 'index', 'object', 'type'],
             'newlines-between': 'always',
             pathGroups: [
               {
@@ -415,7 +404,7 @@ define.lint(
  * @see {@link https://prettier.io/docs/options | Prettier Options}
  */
 define.fmt({
-  printWidth: 80,
+  printWidth: 100,
   tabWidth: 2,
   useTabs: false,
   semi: true,
@@ -437,6 +426,6 @@ define.fmt({
  * @see {@link https://rstack.rs/guide/cli/hooks | Git Hooks}
  */
 define.staged({
-  '*.{js,jsx,ts,tsx,mjs,cjs,mts,cts}': ['rs lint --fix', 'rs fmt'],
-  '*.{json,md,mdx,css,scss,less,html,yml,yaml}': 'rs fmt'
+  '*.{js,ts,cjs,mjs,d.cts,d.mts,jsx,tsx}': ['rs lint --fix', 'rs fmt'],
+  '*.{json,jsonc,md,mdx,yml,yaml,css,scss,less,html,vue}': 'rs fmt'
 });

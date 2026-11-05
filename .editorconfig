@@ -12,7 +12,7 @@ insert_final_newline = true
 end_of_line = lf
 indent_style = space
 indent_size = 2
-max_line_length = 80
+max_line_length = 100
 
 [*.rs]
 indent_size = 4
