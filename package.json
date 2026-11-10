@@ -64,8 +64,8 @@
   "devDependencies": {
     "@rsbuild/plugin-type-check": "^1.6.1",
     "@rsdoctor/agent-cli": "^0.1.1",
-    "@rsdoctor/core": "^2.0.1",
-    "@rspress/core": "^2.1.0",
+    "@rsdoctor/core": "^2.0.2",
+    "@rspress/core": "^2.1.1",
     "@tsconfig/node-lts": "^24.0.1",
     "@types/node": "^26.6.6",
     "@types/react": "^19.3.0",
@@ -82,12 +82,12 @@
     "taze": "^21.3.0",
     "typescript": "^7.0.2"
   },
-  "packageManager": "pnpm@12.16.1",
+  "packageManager": "pnpm@12.18.0",
   "engines": {
     "node": ">=22"
   },
   "publishConfig": {
     "access": "public",
-    "registry": "https://npmjs.org"
+    "registry": "https://registry.npmjs.org"
   }
 }

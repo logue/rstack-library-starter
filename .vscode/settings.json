@@ -2,44 +2,27 @@
   "editor.defaultFormatter": "rstack.rstack",
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.rslint": "explicit"
+  },
   "eslint.enable": false,
   // Allow json comments.
   "files.associations": {
     "*.json": "jsonc"
   },
+  "js/ts.tsdk.path": "node_modules/typescript",
   // Enable the experimental TypeScript Go (tsgo) feature for faster TypeScript compilation.
   "js/ts.experimental.useTsgo": true,
-  "[javascript]": {
-    "editor.defaultFormatter": "rstack.rstack"
-  },
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "rstack.rstack"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "rstack.rstack"
-  },
-  "[json5]": {
-    "editor.defaultFormatter": "rstack.rstack"
-  },
-  "[jsonc]": {
-    "editor.defaultFormatter": "rstack.rstack"
-  },
-  "[markdown]": {
-    "editor.defaultFormatter": "rstack.rstack"
-  },
-  "[mdx]": {
-    "editor.defaultFormatter": "rstack.rstack"
-  },
-  "[toml]": {
-    "editor.defaultFormatter": "rstack.rstack"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "rstack.rstack"
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "rstack.rstack"
-  },
-  "[yaml]": {
-    "editor.defaultFormatter": "rstack.rstack"
-  }
+  // Formatter settings
+  "[javascript]": { "editor.defaultFormatter": "rstack.rstack" },
+  "[javascriptreact]": { "editor.defaultFormatter": "rstack.rstack" },
+  "[json]": { "editor.defaultFormatter": "rstack.rstack" },
+  "[json5]": { "editor.defaultFormatter": "rstack.rstack" },
+  "[jsonc]": { "editor.defaultFormatter": "rstack.rstack" },
+  "[markdown]": { "editor.defaultFormatter": "rstack.rstack" },
+  "[mdx]": { "editor.defaultFormatter": "rstack.rstack" },
+  "[toml]": { "editor.defaultFormatter": "rstack.rstack" },
+  "[typescript]": { "editor.defaultFormatter": "rstack.rstack" },
+  "[typescriptreact]": { "editor.defaultFormatter": "rstack.rstack" },
+  "[yaml]": { "editor.defaultFormatter": "rstack.rstack" }
 }
