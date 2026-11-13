@@ -1,8 +1,10 @@
+import { pluginSass } from '@rsbuild/plugin-sass';
 import { pluginTypeCheck } from '@rsbuild/plugin-type-check';
 import { RsdoctorRspackPlugin } from '@rsdoctor/core';
 import { define } from 'rstack';
 
 import { readFileSync } from 'node:fs';
+import path from 'node:path';
 
 import prettierPlugin from 'eslint-config-prettier';
 
@@ -102,6 +104,10 @@ define.lib({
   },
   bundle: true,
   syntax: 'esnext',
+  source: {
+    define: createBuildDefines(),
+    tsconfigPath: './tsconfig.rslib.json'
+  },
   output: {
     target: 'node',
     autoExternal: true
@@ -115,9 +121,14 @@ define.lib({
         autoExtension: true,
         tsgo: true // Enable TypeScript 7 native compiler
       },
+      source: {
+        entry: {
+          index: './src/index.ts'
+        }
+      },
       output: {
         filename: {
-          js: 'index.es.js'
+          js: '[name].es.js'
         },
         sourceMap: true
       }
@@ -129,7 +140,7 @@ define.lib({
       output: {
         cleanDistPath: false,
         filename: {
-          js: 'index.umd.js'
+          js: '[name].umd.js'
         },
         minify: true,
         sourceMap: false
@@ -138,10 +149,6 @@ define.lib({
       umdName
     }
   ],
-  source: {
-    define: createBuildDefines(),
-    tsconfigPath: './tsconfig.rslib.json'
-  },
   tools: {
     rspack: {
       plugins: [
@@ -165,17 +172,7 @@ define.lib({
  * @see {@link https://rsbuild.rs/config | Rsbuild Config}
  */
 define.app({
-  plugins: [pluginTypeCheck()],
-  output: {
-    assetPrefix: './',
-    distPath: {
-      root: './src-docs/public/demo/'
-    },
-    filenameHash: true
-  },
-  html: {
-    template: './src-demo/index.html'
-  },
+  plugins: [pluginSass(), pluginTypeCheck()],
   source: {
     define: createBuildDefines(),
     entry: {
@@ -183,6 +180,39 @@ define.app({
     },
     include: ['./src'],
     tsconfigPath: './tsconfig.rsbuild.json'
+  },
+  html: {
+    template: './src-demo/index.html'
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(import.meta.dirname, 'src'),
+      // Self-reference so demo components can `import CodeMirror from 'vue-codemirror6'`
+      // exactly as a real consumer of the published package would.
+      'vue-codemirror6': path.resolve(import.meta.dirname, 'src')
+    }
+  },
+  output: {
+    assetPrefix: './',
+    distPath: {
+      root: './src-docs/public/demo/'
+    },
+    filenameHash: true
+  },
+  tools: {
+    rspack: config => {
+      // `import Src from './Foo.vue?source'` returns the raw SFC source as a string.
+      config.module.rules?.unshift({
+        test: /\.vue$/,
+        resourceQuery: /source/,
+        use: [
+          {
+            loader: path.resolve(import.meta.dirname, 'src-demo/loaders/vue-source-loader.js')
+          }
+        ]
+      });
+      return config;
+    }
   }
 });
 
@@ -211,6 +241,10 @@ define.doc({
       }
     ]
   },
+  builderConfig: {
+    plugins: [pluginSass()]
+  },
+  globalStyles: path.join(__dirname, 'theme/index.scss'),
   // Site information settings
   title: packageJson.name,
   description: packageJson.description,
@@ -249,7 +283,7 @@ define.lint(
     js,
     ts,
     reactPlugin,
-    reactHooksPlugin,
+    // reactHooksPlugin,
     importPlugin,
     // nodePlugin,
     promisePlugin,
@@ -258,8 +292,11 @@ define.lint(
     unicornPlugin,
     jsxA11yPlugin
   }) => [
+    // `ignores` must live in its own object to act as a global ignore.
     {
-      ignores: IGNORE_PATTERNS,
+      ignores: IGNORE_PATTERNS
+    },
+    {
       languageOptions: {
         globals: {
           ...globals.browser,
@@ -286,7 +323,7 @@ define.lint(
     unicornPlugin.configs.recommended,
     // nodePlugin.configs.recommended,
     reactPlugin.configs.recommended,
-    reactHooksPlugin.configs.recommended, // Comment out this line when using Vue.
+    // reactHooksPlugin.configs.recommended,
     jsxA11yPlugin.configs.recommended,
 
     {
@@ -355,7 +392,18 @@ define.lint(
           }
         ],
         // File names should, in principle, be in PascalCase, with some exceptions.
-        'unicorn/filename-case': 'off'
+        'unicorn/filename-case': 'off',
+        // `props` is the idiomatic Vue name; do not force `properties`.
+        'unicorn/name-replacements': [
+          'error',
+          {
+            replacements: {
+              props: false
+            }
+          }
+        ],
+        // Vue Options API (`render()`) and webpack loaders rely on `this`.
+        'unicorn/no-this-outside-of-class': 'off'
       },
       settings: {
         'import/resolver': {
@@ -415,6 +463,8 @@ define.fmt({
   arrowParens: 'avoid',
   endOfLine: 'lf',
   plugins: ['prettier-plugin-yaml'],
+  // Vue
+  vueIndentScriptAndStyle: true,
   // Bellow is rstack options
   // see https://rstack.rs/guide/formatting
   ignorePatterns: IGNORE_PATTERNS,

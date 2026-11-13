@@ -15,4 +15,8 @@ overrides:
 # Agent skills
 skills:
   dirs:
-    - .agents/skills
+    - .agents
+
+permissions:
+  taze:
+    skills: true
