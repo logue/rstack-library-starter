@@ -186,10 +186,7 @@ define.app({
   },
   resolve: {
     alias: {
-      '@': path.resolve(import.meta.dirname, 'src'),
-      // Self-reference so demo components can `import CodeMirror from 'vue-codemirror6'`
-      // exactly as a real consumer of the published package would.
-      'vue-codemirror6': path.resolve(import.meta.dirname, 'src')
+      '@': path.resolve(import.meta.dirname, 'src')
     }
   },
   output: {
@@ -198,21 +195,6 @@ define.app({
       root: './src-docs/public/demo/'
     },
     filenameHash: true
-  },
-  tools: {
-    rspack: config => {
-      // `import Src from './Foo.vue?source'` returns the raw SFC source as a string.
-      config.module.rules?.unshift({
-        test: /\.vue$/,
-        resourceQuery: /source/,
-        use: [
-          {
-            loader: path.resolve(import.meta.dirname, 'src-demo/loaders/vue-source-loader.js')
-          }
-        ]
-      });
-      return config;
-    }
   }
 });
 
@@ -229,9 +211,7 @@ define.doc({
   outDir: 'docs',
   // If the package name and repository name are different, correct them as needed.
   base: `/${packageJson.name.slice(packageJson.name.lastIndexOf('/') + 1)}/`,
-  route: {
-    exclude: ['components/**']
-  },
+  route: { exclude: ['components/**'] },
   themeConfig: {
     socialLinks: [
       {
@@ -241,9 +221,7 @@ define.doc({
       }
     ]
   },
-  builderConfig: {
-    plugins: [pluginSass()]
-  },
+  builderConfig: { plugins: [pluginSass()] },
   globalStyles: path.join(__dirname, 'theme/index.scss'),
   // Site information settings
   title: packageJson.name,
