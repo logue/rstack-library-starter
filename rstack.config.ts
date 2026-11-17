@@ -72,6 +72,8 @@ const IGNORE_PATTERNS = [
   '**/.pnpm/**',
   '**/.rsdoctor/**',
   '**/.rstack/**',
+  '**/.vitest/**',
+  '**/.weangler/**',
   // Test coverage reports.
   '**/coverage/**',
   '**/e2e/**',
@@ -79,11 +81,12 @@ const IGNORE_PATTERNS = [
   '**/reports/**',
   '**/test-results/**',
   // Build artifacts.
-  '**/demo/**',
   '**/dist/**',
   '**/docs/**',
   '**/storybook-static/**',
   '**/target/**',
+  // Wrangler
+  '**/worker-configuration.d.ts',
   // Node modules
   '**/node_modules/**'
 ];

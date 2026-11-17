@@ -6,6 +6,7 @@
 .windsurf/
 
 # Dependencies
+.pnpm/crates/
 node_modules/
 
 # Build / Cache
@@ -16,10 +17,10 @@ node_modules/
 .nitro/
 .nuxt/
 .output/
-.pnpm/crates/
 .rstack/
 !.rstack/hooks/
 .vitest/
+.wrangler/
 
 # Test Report
 coverage/
@@ -31,7 +32,6 @@ test-results/
 # Production / Build output
 dist/
 docs/
-src-docs/public/demo/
 storybook-static/
 target/
 
@@ -39,6 +39,8 @@ target/
 .env
 .env.*
 !.env.example
+.dev.vars
+worker-configuration.d.ts
 
 # Lockfiles
 *.lock

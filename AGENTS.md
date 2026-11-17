@@ -14,7 +14,7 @@ This project uses Rstack CLI as its JS toolchain:
 - **Language**: TypeScript 7
 - **Package manager**: pnpm (do not use npm or yarn)
 
-**Last updated**: 2026-11-05
+**Last updated**: 2026-11-17
 **Verified with**: `package.json` in this repository
 
 ### Tool Versions
@@ -24,7 +24,7 @@ See `package.json` for authoritative dependency versions.
 This guide assumes:
 
 - TypeScript 7.0.2 or later
-- rstack 0.9.0 or later
+- rstack 0.9.2 or later
 
 **If you encounter version-related issues, check `package.json` directly—it is the source of truth.**
 
