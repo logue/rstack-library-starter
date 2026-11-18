@@ -17,6 +17,7 @@ node_modules/
 .nitro/
 .nuxt/
 .output/
+.rsdoctor/
 .rstack/
 !.rstack/hooks/
 .vitest/
