@@ -14,7 +14,7 @@ This project uses Rstack CLI as its JS toolchain:
 - **Language**: TypeScript 7
 - **Package manager**: pnpm (do not use npm or yarn)
 
-**Last updated**: 2026-11-17
+**Last updated**: 2026-11-20
 **Verified with**: `package.json` in this repository
 
 ### Tool Versions
@@ -24,7 +24,7 @@ See `package.json` for authoritative dependency versions.
 This guide assumes:
 
 - TypeScript 7.0.2 or later
-- rstack 0.9.2 or later
+- rstack 0.9.3 or later
 
 **If you encounter version-related issues, check `package.json` directly—it is the source of truth.**
 
@@ -231,3 +231,20 @@ Example:
 
 - ✓ Tests in `` `__tests__` `` directories
 - ✗ Tests in `**tests**` directories (incorrect)
+
+## Documentation & Localization
+
+- Playground (`src-demo/`) is single-language only; do NOT localize it.
+- When creating or updating files in `src-docs/`, you MUST follow `TRANSLATION.md` strictly to maintain 1-to-1 Markdown block parity and `llms.txt` compatibility.
+
+## Git & PR Rules
+
+- Commit messages follow **Conventional Commits**:
+  ```
+  feat(auth): add JWT refresh token rotation
+  fix(api): handle 429 rate limit with exponential backoff
+  docs: update README setup instructions
+  ```
+- PRs should be focused on a single purpose; aim for diffs under ~400 lines.
+- Minimum **1 approving review** required before merging to `master`.
+- PR description must include: what changed, how to test, and screenshots if UI is affected.
