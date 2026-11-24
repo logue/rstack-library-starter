@@ -33,6 +33,7 @@ test-results/
 # Production / Build output
 dist/
 docs/
+src-docs/public/demo/
 storybook-static/
 target/
 

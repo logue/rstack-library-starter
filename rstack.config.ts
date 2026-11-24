@@ -248,6 +248,13 @@ define.doc({
  * @see {@link https://rstest.rs/config/ | Rstest Config}
  */
 define.test({
+  // Be explicit instead of relying on the environment inferred from the library target.
+  testEnvironment: 'happy-dom',
+  include: ['src/**/__tests__/**/*.spec.ts'],
+  // Shared DOM cleanup between tests.
+  setupFiles: ['./src/__tests__/setup.ts'],
+  // Restore `rs.spyOn()` originals and reset `rs.fn()` state between tests.
+  restoreMocks: true,
   source: {
     tsconfigPath: './tsconfig.rstest.json'
   }
@@ -383,6 +390,9 @@ define.lint(
             }
           }
         ],
+        // This is because the handling of uppercase and lowercase letters in hexadecimal numbers was reversed,
+        // causing them to be rewritten alternately.
+        'unicorn/number-literal-case': 'off',
         // Vue Options API (`render()`) and webpack loaders rely on `this`.
         'unicorn/no-this-outside-of-class': 'off'
       },

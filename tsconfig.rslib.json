@@ -20,6 +20,7 @@
     "rootDir": "src",
     "tsBuildInfoFile": "./.rstack/tsconfig.rslib.tsbuildinfo",
     "useDefineForClassFields": true,
-    "types": ["rstack/types", "node"]
+    "types": ["rstack/types", "node"],
+    "lib": ["ESNext", "DOM", "DOM.Iterable"]
   }
 }
